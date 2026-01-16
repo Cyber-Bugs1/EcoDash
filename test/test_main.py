@@ -1,40 +1,41 @@
 import ee
-import pandas as pd
 
-ee.Initialize(project = "hackathon-484205")
+ee.Initialize(project="hackathon-484205")
 print("Earth Engine initialized successfully")
 
-india = ee.FeatureCollection("FAO/GAUL/2015/level1") \
+india_states = (
+    ee.FeatureCollection("FAO/GAUL/2015/level1")
     .filter(ee.Filter.eq("ADM0_NAME", "India"))
-aod = (
+)
+
+print("India state boundaries loaded")
+
+aod_image = (
     ee.ImageCollection("MODIS/061/MCD19A2_GRANULES")
     .filterDate("2020-01-01", "2020-12-31")
     .select("Optical_Depth_047")
     .mean()
-    .clip(india)
+    .clip(india_states)
 )
 
-print("AOD Image ready")
+print("AOD image prepared")
 
-state_aod = aod.reduceRegions(
-    collection=india,
+state_aod = aod_image.reduceRegions(
+    collection=india_states,
     reducer=ee.Reducer.mean(),
-    scale=1000
+    scale=5000
 )
 
-features = state_aod.getInfo()["features"]
+print("State-wise AOD calculated")
 
-rows=[]
-for f in features:
-    props=f['properties']
-    rows.append({
-        "State":props.get("ADM1_NAME"),
-        "aod":props.get("mean")
-    })
+export_task = ee.batch.Export.table.toDrive(
+    collection=state_aod,
+    description="India_Pollution_AOD_2020",
+    folder="GEE_Exports",
+    fileFormat="CSV"
+)
 
-df=pd.DataFrame(rows)
+export_task.start()
 
-print(df.head())
-
-df.to_csv("Poll_2020.csv",index=False)
-print("Save")
+print("Export started successfully!")
+print("Check Google Drive → GEE_Exports → India_Pollution_AOD_2020.csv")
