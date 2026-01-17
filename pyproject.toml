@@ -17,6 +17,10 @@ dependencies = [
     "jupyter-leaflet>=0.20.0",
     "pandas>=2.3.3",
     "numpy>=2.2.6",
+    "google-api-python-client>=2.187.0",
+    "google-auth>=2.47.0",
+    "google-auth-httplib2>=0.3.0",
+    "google-auth-oauthlib>=1.2.4",
 ]
 
 [dependency-groups]
