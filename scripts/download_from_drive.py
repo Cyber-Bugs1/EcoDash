@@ -3,6 +3,8 @@ from googleapiclient.discovery import build
 from googleapiclient.http import MediaIoBaseDownload
 import io
 import os
+import time
+import ssl
 
 # -------------------------------
 # CONFIG
@@ -49,18 +51,39 @@ print(f"Found {len(files)} CSV files")
 # -------------------------------
 # DOWNLOAD FILES
 # -------------------------------
+MAX_RETRIES = 5
+
 for file in files:
     file_id = file["id"]
     file_name = file["name"]
+    file_path = os.path.join(DOWNLOAD_DIR, file_name)
 
     print("Downloading:", file_name)
 
-    request = service.files().get_media(fileId=file_id)
-    fh = io.FileIO(os.path.join(DOWNLOAD_DIR, file_name), "wb")
-    downloader = MediaIoBaseDownload(fh, request)
+    for attempt in range(MAX_RETRIES):
+        try:
+            request = service.files().get_media(fileId=file_id)
+            fh = io.FileIO(file_path, "wb")
+            downloader = MediaIoBaseDownload(fh, request)
 
-    done = False
-    while not done:
-        status, done = downloader.next_chunk()
+            done = False
+            while not done:
+                status, done = downloader.next_chunk()
+                if status:
+                    print(f"  Progress: {int(status.progress() * 100)}%")
+            
+            fh.close()
+            print(f"  ✓ Downloaded successfully")
+            break  # Success - exit retry loop
+            
+        except (ssl.SSLError, ConnectionError, TimeoutError) as e:
+            fh.close()
+            if attempt < MAX_RETRIES - 1:
+                wait_time = 2 ** attempt  # Exponential backoff: 1, 2, 4, 8, 16 seconds
+                print(f"  ⚠ Error: {e}. Retrying in {wait_time}s... (attempt {attempt + 1}/{MAX_RETRIES})")
+                time.sleep(wait_time)
+            else:
+                print(f"  ✗ Failed after {MAX_RETRIES} attempts: {e}")
+                raise
 
-print("All files downloaded successfully")
+print("\n✓ All files downloaded successfully")
