@@ -1,0 +1,279 @@
+{
+  "data_type": "MODIS_AOD",
+  "year": 2023,
+  "states": [
+    {
+      "state_name": "Andaman and Nicobar",
+      "year": 2023,
+      "aod_mean": 246.31808355249007,
+      "aod_stddev": 56.7604656765121,
+      "aod_min": 85.40322580645162,
+      "aod_max": 442.12138728323697
+    },
+    {
+      "state_name": "Andhra Pradesh",
+      "year": 2023,
+      "aod_mean": 708.4346533873827,
+      "aod_stddev": 107.42615841351319,
+      "aod_min": 397.4353448275862,
+      "aod_max": 1135.0238095238096
+    },
+    {
+      "state_name": "Arunachal Pradesh",
+      "year": 2023,
+      "aod_mean": 231.94639010314586,
+      "aod_stddev": 77.69809367847914,
+      "aod_min": 69.02352941176471,
+      "aod_max": 433.73770491803276
+    },
+    {
+      "state_name": "Assam",
+      "year": 2023,
+      "aod_mean": 517.8106607360979,
+      "aod_stddev": 136.9723696459764,
+      "aod_min": 209.26637554585153,
+      "aod_max": 870.1772151898734
+    },
+    {
+      "state_name": "Bihar",
+      "year": 2023,
+      "aod_mean": 876.2337523738414,
+      "aod_stddev": 69.04720956266712,
+      "aod_min": 588.0544871794872,
+      "aod_max": 1027.682389937107
+    },
+    {
+      "state_name": "Chandigarh",
+      "year": 2023,
+      "aod_mean": 527.0582059035531,
+      "aod_stddev": 16.73692863259349,
+      "aod_min": 501.4485294117647,
+      "aod_max": 554.6111111111111
+    },
+    {
+      "state_name": "Chhattisgarh",
+      "year": 2023,
+      "aod_mean": 746.8927428224365,
+      "aod_stddev": 77.6742714797988,
+      "aod_min": 500.9818181818182,
+      "aod_max": 914.7259475218659
+    },
+    {
+      "state_name": "Dadra and Nagar Haveli",
+      "year": 2023,
+      "aod_mean": 703.1048576883485,
+      "aod_stddev": 44.17698268616129,
+      "aod_min": 459.71523178807945,
+      "aod_max": 744.5644699140402
+    },
+    {
+      "state_name": "Daman and Diu",
+      "year": 2023,
+      "aod_mean": 606.0689109749652,
+      "aod_stddev": 57.59470367933566,
+      "aod_min": 458.7328244274809,
+      "aod_max": 761.4881355932204
+    },
+    {
+      "state_name": "Delhi",
+      "year": 2023,
+      "aod_mean": 816.863935568904,
+      "aod_stddev": 32.00110811992849,
+      "aod_min": 748.3769633507853,
+      "aod_max": 868.4960212201592
+    },
+    {
+      "state_name": "Goa",
+      "year": 2023,
+      "aod_mean": 627.2939608709643,
+      "aod_stddev": 63.30839487037088,
+      "aod_min": 481.19591836734696,
+      "aod_max": 731.2517006802722
+    },
+    {
+      "state_name": "Gujarat",
+      "year": 2023,
+      "aod_mean": 622.0785180363484,
+      "aod_stddev": 129.37679061752303,
+      "aod_min": 268.99645390070924,
+      "aod_max": 2672.818181818182
+    },
+    {
+      "state_name": "Haryana",
+      "year": 2023,
+      "aod_mean": 743.7507304684012,
+      "aod_stddev": 79.01695340139766,
+      "aod_min": 343.9421965317919,
+      "aod_max": 893.8393351800554
+    },
+    {
+      "state_name": "Himachal Pradesh",
+      "year": 2023,
+      "aod_mean": 171.11313011219517,
+      "aod_stddev": 141.6976648258411,
+      "aod_min": 19.225419664268586,
+      "aod_max": 553.5088161209068
+    },
+    {
+      "state_name": "Jharkhand",
+      "year": 2023,
+      "aod_mean": 769.0861856759248,
+      "aod_stddev": 73.80956065302269,
+      "aod_min": 449.94985250737466,
+      "aod_max": 995.4262295081967
+    },
+    {
+      "state_name": "Karnataka",
+      "year": 2023,
+      "aod_mean": 552.9289455270058,
+      "aod_stddev": 54.20582659680213,
+      "aod_min": 227.0391304347826,
+      "aod_max": 705.4290322580645
+    },
+    {
+      "state_name": "Kerala",
+      "year": 2023,
+      "aod_mean": 489.5590415297087,
+      "aod_stddev": 99.53356285129625,
+      "aod_min": 257.38759689922483,
+      "aod_max": 742.783950617284
+    },
+    {
+      "state_name": "Lakshadweep",
+      "year": 2023,
+      "aod_mean": 600.8518594170687,
+      "aod_stddev": 89.66771388891827,
+      "aod_min": 382.7142857142857,
+      "aod_max": 734.6647727272727
+    },
+    {
+      "state_name": "Madhya Pradesh",
+      "year": 2023,
+      "aod_mean": 668.7560944093813,
+      "aod_stddev": 60.94789600997958,
+      "aod_min": 210.06976744186048,
+      "aod_max": 842.8696883852691
+    },
+    {
+      "state_name": "Maharashtra",
+      "year": 2023,
+      "aod_mean": 665.4136477366019,
+      "aod_stddev": 62.83003742610746,
+      "aod_min": 273.84730538922156,
+      "aod_max": 850.9246575342465
+    },
+    {
+      "state_name": "Manipur",
+      "year": 2023,
+      "aod_mean": 314.62012882721234,
+      "aod_stddev": 63.46360671407662,
+      "aod_min": 168.3768115942029,
+      "aod_max": 495.32153392330383
+    },
+    {
+      "state_name": "Meghalaya",
+      "year": 2023,
+      "aod_mean": 459.04999743660846,
+      "aod_stddev": 141.80909462437288,
+      "aod_min": 230.08878504672896,
+      "aod_max": 832.027027027027
+    },
+    {
+      "state_name": "Mizoram",
+      "year": 2023,
+      "aod_mean": 340.88423992425805,
+      "aod_stddev": 69.7925742714078,
+      "aod_min": 210.3879003558719,
+      "aod_max": 531.5416666666666
+    },
+    {
+      "state_name": "Nagaland",
+      "year": 2023,
+      "aod_mean": 318.5529671667541,
+      "aod_stddev": 81.81831638735365,
+      "aod_min": 141.0909090909091,
+      "aod_max": 520.3367697594501
+    },
+    {
+      "state_name": "Orissa",
+      "year": 2023,
+      "aod_mean": 849.3342516299659,
+      "aod_stddev": 95.97165213410314,
+      "aod_min": 408.3174157303371,
+      "aod_max": 1406.9166666666667
+    },
+    {
+      "state_name": "Puducherry",
+      "year": 2023,
+      "aod_mean": 595.6927872220721,
+      "aod_stddev": 104.18414377470273,
+      "aod_min": 472.9119718309859,
+      "aod_max": 972.9565217391304
+    },
+    {
+      "state_name": "Punjab",
+      "year": 2023,
+      "aod_mean": 667.30009851749,
+      "aod_stddev": 96.80839995428333,
+      "aod_min": 293.3401162790698,
+      "aod_max": 897.7853535353536
+    },
+    {
+      "state_name": "Rajasthan",
+      "year": 2023,
+      "aod_mean": 654.128558597472,
+      "aod_stddev": 70.17228414119674,
+      "aod_min": 285.0948509485095,
+      "aod_max": 1083.0555555555557
+    },
+    {
+      "state_name": "Sikkim",
+      "year": 2023,
+      "aod_mean": 151.15198537695835,
+      "aod_stddev": 139.81289627457627,
+      "aod_min": 19.24301075268817,
+      "aod_max": 466.8257839721254
+    },
+    {
+      "state_name": "Tamil Nadu",
+      "year": 2023,
+      "aod_mean": 507.74272452449327,
+      "aod_stddev": 60.925167640692806,
+      "aod_min": 257.38759689922483,
+      "aod_max": 709.069264069264
+    },
+    {
+      "state_name": "Tripura",
+      "year": 2023,
+      "aod_mean": 498.3150037684169,
+      "aod_stddev": 45.07862254350977,
+      "aod_min": 369.1121794871795,
+      "aod_max": 646.8607142857143
+    },
+    {
+      "state_name": "Uttar Pradesh",
+      "year": 2023,
+      "aod_mean": 782.132825477229,
+      "aod_stddev": 84.82174951611816,
+      "aod_min": 257.2933673469388,
+      "aod_max": 955.0595238095239
+    },
+    {
+      "state_name": "Uttarakhand",
+      "year": 2023,
+      "aod_mean": 249.92086058906298,
+      "aod_stddev": 160.66379934539427,
+      "aod_min": 19.273809523809526,
+      "aod_max": 670.1949367088607
+    },
+    {
+      "state_name": "West Bengal",
+      "year": 2023,
+      "aod_mean": 894.780410074421,
+      "aod_stddev": 116.60532982240827,
+      "aod_min": 196.61111111111111,
+      "aod_max": 1252.4591194968552
+    }
+  ],
+  "country": null
+}

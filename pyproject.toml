@@ -1,0 +1,27 @@
+[project]
+name = "satalite"
+version = "0.1.0"
+description = "AI-based Environmental Monitoring System using Google Earth Engine"
+readme = "README.md"
+requires-python = ">=3.12"
+dependencies = [
+    "earthengine-api>=0.1.384",
+    "fastapi>=0.109.0",
+    "uvicorn>=0.27.0",
+    "sqlalchemy>=2.0.25",
+    "pandas>=2.2.0",
+    "numpy>=1.26.0",
+    "geopandas>=0.14.0",
+    "shapely>=2.0.0",
+    "geojson>=3.1.0",
+    "pydantic>=2.5.0",
+    "python-dotenv>=1.0.0",
+    "scikit-learn>=1.8.0",
+    "flask>=3.1.2",
+]
+
+[tool.uv]
+dev-dependencies = [
+    "pytest>=8.0.0",
+    "pytest-asyncio>=0.23.0",
+]
