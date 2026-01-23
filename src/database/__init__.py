@@ -1,21 +1,17 @@
-"""Database package for environmental monitoring system."""
+"""Database package for user and data management."""
 
-from .schema import (
-    Base,
-    RawPollutionData,
-    ProcessedPollutionData,
-    CountryPollutionData,
-    create_database,
-    get_session
+from .user_schema import (
+    UserDatabase,
+    UserRole,
+    AccessLevel,
+    ROLE_ACCESS,
+    init_default_admin
 )
-from .operations import PollutionDataOperations
 
 __all__ = [
-    'Base',
-    'RawPollutionData',
-    'ProcessedPollutionData',
-    'CountryPollutionData',
-    'create_database',
-    'get_session',
-    'PollutionDataOperations'
+    'UserDatabase',
+    'UserRole',
+    'AccessLevel',
+    'ROLE_ACCESS',
+    'init_default_admin'
 ]
