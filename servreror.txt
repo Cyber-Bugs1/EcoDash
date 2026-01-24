@@ -1,0 +1,14 @@
+
+> env-dashboard@0.1.0 dev
+> next dev
+
+▲ Next.js 16.1.3 (Turbopack)
+- Local:         http://localhost:3000
+- Network:       http://192.168.29.117:3000
+- Environments: .env.local
+
+✓ Starting...
+✓ Ready in 1203ms
+ GET /dashboard?state=Goa 500 in 818ms (compile: 572ms, render: 246ms)
+ GET /dashboard?state=Goa 500 in 49ms (compile: 25ms, render: 25ms)
+[?25h
