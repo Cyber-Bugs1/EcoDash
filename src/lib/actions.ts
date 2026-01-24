@@ -4,10 +4,15 @@ import {
     fetchPollutionData as fetchPolData,
     fetchMonthlyData as fetchMonData,
     fetchMonthlyDataForYear as fetchMonDataYear,
+    fetchMetricDetail as fetchMetricDet,
     fetchStates as fetchSt,
     getAvailableYears as getYears,
     checkBackendHealth,
-    type MetricType
+    fetchStateSummary as fetchSummary,
+    type MetricType,
+    type StateSummaryResponse,
+    type TrendData,
+    type MetricDetailResponse
 } from "./data-service";
 
 export async function checkBackendHealthAction() {
@@ -20,6 +25,11 @@ export async function fetchStatesAction() {
 
 export async function fetchPollutionDataAction(state: string) {
     return await fetchPolData(state);
+}
+
+// NEW: Fetch state summary using new API format
+export async function fetchStateSummaryAction(state: string): Promise<StateSummaryResponse | null> {
+    return await fetchSummary(state);
 }
 
 export async function fetchMonthlyDataAction(
@@ -40,4 +50,13 @@ export async function fetchMonthlyDataForYearAction(
 
 export async function getAvailableYearsAction() {
     return await getYears();
+}
+
+// Fetch full metric detail (including annual stats)
+export async function fetchMetricDetailAction(
+    state: string,
+    metric: MetricType,
+    year: number
+): Promise<MetricDetailResponse | null> {
+    return await fetchMetricDet(state, metric, year);
 }

@@ -20,7 +20,7 @@ export default async function AODPage({
           metricName="Aerosol Optical Depth (AOD)"
           metricUnit=""
           metricDescription="Detailed monthly breakdown of Aerosol measurements"
-          chartColor="var(--color-chart-2)"
+          chartColor="#14b8a6"
         />
       </main>
     </div>

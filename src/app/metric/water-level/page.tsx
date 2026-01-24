@@ -20,7 +20,7 @@ export default async function WaterLevelPage({
           metricName="Water Levels"
           metricUnit="m"
           metricDescription="Detailed monthly breakdown of water level measurements"
-          chartColor="var(--color-chart-5)"
+          chartColor="#0ea5e9"
         />
       </main>
     </div>

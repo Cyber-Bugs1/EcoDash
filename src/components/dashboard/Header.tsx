@@ -1,5 +1,7 @@
 "use client"
 
+import Link from "next/link"
+import Image from "next/image"
 import { Moon, Sun } from "lucide-react"
 import { useTheme } from "next-themes"
 
@@ -25,12 +27,21 @@ export function Header({ states = [], currentState = "Delhi" }: HeaderProps) {
     <header className="border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60 sticky top-0 z-50">
       <div className="container flex h-16 items-center justify-between px-4">
         <div className="flex items-center gap-6">
-          <div className="flex items-center gap-2">
-            <div className="h-6 w-6 rounded-full bg-primary" />
-            <h1 className="text-xl font-bold tracking-tight text-foreground">
-              Eco<span className="text-primary">Dash</span>
+          <Link 
+            href="/" 
+            className="flex items-center gap-2 group cursor-pointer transition-all duration-300 hover:scale-105"
+          >
+            <Image 
+              src="/logo.png?v=2" 
+              alt="EcoDash Logo" 
+              width={32} 
+              height={32} 
+              className="transition-all duration-300 group-hover:drop-shadow-[0_0_8px_hsl(var(--primary))]" 
+            />
+            <h1 className="text-xl font-bold tracking-tight text-foreground transition-all duration-300 group-hover:text-primary">
+              Eco<span className="text-primary transition-all duration-300 group-hover:drop-shadow-[0_0_12px_hsl(var(--primary))]">Dash</span>
             </h1>
-          </div>
+          </Link>
           
           <StateSelector states={states} currentState={currentState} />
         </div>

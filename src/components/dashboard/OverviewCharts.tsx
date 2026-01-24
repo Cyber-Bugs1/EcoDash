@@ -1,6 +1,5 @@
 "use client"
 
-import { useRouter } from "next/navigation"
 import {
   Line,
   LineChart,
@@ -15,10 +14,16 @@ import {
 } from "recharts"
 
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card"
-import { PollutionData } from "@/lib/data-service"
+import { TrendData } from "@/lib/data-service"
 
 interface OverviewChartsProps {
-  data: PollutionData[]
+  trend: TrendData;
+}
+
+interface ChartDataPoint {
+  year: number;
+  pm25: number;
+  aod: number;
 }
 
 const CustomTooltip = ({ active, payload, label }: any) => {
@@ -30,25 +35,23 @@ const CustomTooltip = ({ active, payload, label }: any) => {
           <p key={index} className="flex items-center gap-2" style={{ color: entry.color }}>
             <span className="w-2 h-2 rounded-full" style={{ backgroundColor: entry.color }} />
             <span className="font-medium">{entry.name}:</span>
-            <span>{entry.value}</span>
+            <span>{typeof entry.value === 'number' ? entry.value.toFixed(2) : entry.value}</span>
           </p>
         ))}
-        <p className="text-xs text-muted-foreground mt-2">Click to view details</p>
       </div>
     );
   }
   return null;
 };
 
-export function OverviewCharts({ data }: OverviewChartsProps) {
-  const router = useRouter();
-
-  const handleChartClick = (data: any) => {
-    if (data && data.activePayload && data.activePayload.length > 0) {
-      const year = data.activePayload[0].payload.year;
-      router.push(`/year/${year}`);
-    }
-  };
+export function OverviewCharts({ trend }: OverviewChartsProps) {
+  // Convert trend data to chart format
+  // trend.years, trend.pm25, trend.aod are parallel arrays
+  const chartData: ChartDataPoint[] = trend.years.map((year, index) => ({
+    year,
+    pm25: trend.pm25[index],
+    aod: trend.aod[index],
+  }));
 
   return (
     <div className="space-y-4">
@@ -56,14 +59,14 @@ export function OverviewCharts({ data }: OverviewChartsProps) {
         {/* PM 2.5 Chart */}
         <Card className="border-primary/10">
           <CardHeader>
-            <CardTitle>PM 2.5 Trends</CardTitle>
+            <CardTitle>PM 2.5 Trend</CardTitle>
             <CardDescription>
-              Annual Average Particulate Matter (µg/m³)
+              Historical & Predicted PM2.5 Levels (µg/m³)
             </CardDescription>
           </CardHeader>
           <CardContent className="pl-2">
             <ResponsiveContainer width="100%" height={350}>
-              <AreaChart data={data} onClick={handleChartClick} style={{ cursor: 'pointer' }}>
+              <AreaChart data={chartData}>
                 <defs>
                   <linearGradient id="colorPm25" x1="0" y1="0" x2="0" y2="1">
                     <stop offset="5%" stopColor="var(--color-primary)" stopOpacity={0.3}/>
@@ -71,7 +74,7 @@ export function OverviewCharts({ data }: OverviewChartsProps) {
                   </linearGradient>
                 </defs>
                 <XAxis dataKey="year" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickCount={8} />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-muted" />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />
@@ -92,16 +95,16 @@ export function OverviewCharts({ data }: OverviewChartsProps) {
         {/* AOD Chart */}
         <Card className="border-primary/10">
           <CardHeader>
-            <CardTitle>Aerosol Optical Depth (AOD)</CardTitle>
+            <CardTitle>Aerosol Optical Depth (AOD) Trends</CardTitle>
             <CardDescription>
-              Annual Average AOD Levels
+              Historical & Predicted AOD Levels
             </CardDescription>
           </CardHeader>
           <CardContent className="pl-2">
             <ResponsiveContainer width="100%" height={350}>
-              <LineChart data={data} onClick={handleChartClick} style={{ cursor: 'pointer' }}>
+              <LineChart data={chartData}>
                 <XAxis dataKey="year" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} domain={['auto', 'auto']} tickCount={8} />
                 <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-muted" />
                 <Tooltip content={<CustomTooltip />} />
                 <Legend />

@@ -20,7 +20,7 @@ export default async function CropYieldPage({
           metricName="Crop Yield"
           metricUnit="tonnes/ha"
           metricDescription="Detailed monthly breakdown of agricultural crop yield predictions"
-          chartColor="var(--color-chart-4)"
+          chartColor="#eab308"
         />
       </main>
     </div>

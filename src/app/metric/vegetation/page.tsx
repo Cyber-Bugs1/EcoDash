@@ -20,7 +20,7 @@ export default async function VegetationPage({
           metricName="Vegetation Index"
           metricUnit=""
           metricDescription="Detailed monthly breakdown of vegetation coverage and health"
-          chartColor="var(--color-chart-3)"
+          chartColor="#22c55e"
         />
       </main>
     </div>

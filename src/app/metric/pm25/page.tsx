@@ -20,7 +20,7 @@ export default async function PM25Page({
           metricName="PM 2.5"
           metricUnit="µg/m³"
           metricDescription="Detailed monthly breakdown of Particulate Matter < 2.5µm"
-          chartColor="var(--color-primary)"
+          chartColor="#94a3b8"
         />
       </main>
     </div>

@@ -1,12 +1,10 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { useSearchParams } from "next/navigation"
+import { useSearchParams, useRouter, usePathname } from "next/navigation"
 import {
   Area,
   AreaChart,
-  Bar,
-  BarChart,
   CartesianGrid,
   ResponsiveContainer,
   Tooltip,
@@ -20,8 +18,9 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@
 import { Button } from "@/components/ui/button"
 import { ArrowLeft } from "lucide-react"
 import Link from "next/link"
-import { fetchMonthlyDataForYearAction, getAvailableYearsAction } from "@/lib/actions"
-import type { MonthlyData, MetricType } from "@/lib/data-service"
+import { fetchMetricDetailAction, getAvailableYearsAction } from "@/lib/actions"
+import type { MonthlyData, MetricType, MetricDetailResponse } from "@/lib/data-service"
+import { MetricNavbar } from "./MetricNavbar"
 
 interface MetricDetailProps {
   metricKey: MetricType
@@ -30,6 +29,8 @@ interface MetricDetailProps {
   metricDescription: string
   chartColor: string
 }
+
+const MONTHS = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
 
 const CustomTooltip = ({ active, payload, label }: any) => {
   if (active && payload && payload.length) {
@@ -48,22 +49,34 @@ const CustomTooltip = ({ active, payload, label }: any) => {
 };
 
 export function MetricDetail({ metricKey, metricName, metricUnit, metricDescription, chartColor }: MetricDetailProps) {
+  const router = useRouter()
+  const pathname = usePathname()
   const searchParams = useSearchParams()
   const currentState = searchParams.get('state') || "Delhi"
+  const urlYear = searchParams.get('year')
   
   const [years, setYears] = useState<number[]>([])
-  const [selectedYear, setSelectedYear] = useState<number | null>(null)
+  const [selectedYear, setSelectedYear] = useState<number | null>(urlYear ? parseInt(urlYear) : null)
   const [currentYearData, setCurrentYearData] = useState<MonthlyData[]>([])
-  const [yearAverages, setYearAverages] = useState<{year: number, average: string}[]>([])
+  const [annualStats, setAnnualStats] = useState<{ mean: number; max: number; min: number } | null>(null)
   const [loading, setLoading] = useState(true)
+
+  // Update URL when year changes
+  const handleYearChange = (year: number) => {
+    setSelectedYear(year)
+    const params = new URLSearchParams(searchParams.toString())
+    params.set('year', year.toString())
+    router.push(`${pathname}?${params.toString()}`, { scroll: false })
+  }
 
   // Load available years on initial mount
   useEffect(() => {
     async function loadYears() {
       const availableYears = await getAvailableYearsAction()
       setYears(availableYears)
+      // If no year in URL, set the first available year
       if (availableYears.length > 0 && !selectedYear) {
-        setSelectedYear(availableYears[0])
+        handleYearChange(availableYears[0])
       }
     }
     loadYears()
@@ -75,46 +88,42 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
     
     async function loadYearData() {
       setLoading(true)
-      const data = await fetchMonthlyDataForYearAction(currentState, metricKey, selectedYear as number)
-      setCurrentYearData(data)
+      const response = await fetchMetricDetailAction(currentState, metricKey, selectedYear as number)
+      
+      if (response) {
+        // Convert monthly_averages to MonthlyData format
+        const monthlyData: MonthlyData[] = MONTHS.map((month, index) => ({
+          month,
+          value: parseFloat(response.monthly_averages[index]?.toFixed(2) || '0'),
+        }));
+        setCurrentYearData(monthlyData)
+        
+        // Set annual stats from API response
+        setAnnualStats({
+          mean: response.annual_mean,
+          max: response.annual_max,
+          min: response.annual_min,
+        })
+      } else {
+        setCurrentYearData([])
+        setAnnualStats(null)
+      }
+      
       setLoading(false)
     }
     loadYearData()
   }, [selectedYear, currentState, metricKey])
 
-  // Load averages for year comparison chart (only once per state/metric)
-  useEffect(() => {
-    async function loadAverages() {
-      const averages: {year: number, average: string}[] = []
-      for (const year of years) {
-        const data = await fetchMonthlyDataForYearAction(currentState, metricKey, year)
-        if (data.length > 0) {
-          const avg = data.reduce((sum, d) => sum + d.value, 0) / data.length
-          averages.push({ year, average: avg.toFixed(1) })
-        }
-      }
-      setYearAverages(averages)
-    }
-    if (years.length > 0) {
-      loadAverages()
-    }
-  }, [years, currentState, metricKey])
-
-  const currentData = currentYearData
-  
-  // Calculate stats
-  const avgValue = currentYearData.length > 0 
-    ? (currentYearData.reduce((sum, d) => sum + d.value, 0) / currentYearData.length).toFixed(1)
-    : 0
-  const maxValue = currentYearData.length > 0 
-    ? Math.max(...currentYearData.map(d => d.value)).toFixed(1)
-    : 0
-  const minValue = currentYearData.length > 0 
-    ? Math.min(...currentYearData.map(d => d.value)).toFixed(1)
-    : 0
+  // Use API stats or fallback to calculated values
+  const avgValue = annualStats ? annualStats.mean.toFixed(1) : '0'
+  const maxValue = annualStats ? annualStats.max.toFixed(1) : '0'
+  const minValue = annualStats ? annualStats.min.toFixed(1) : '0'
 
   return (
     <div className="space-y-6">
+      {/* Metric Navigation Bar */}
+      <MetricNavbar />
+      
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <Link href={`/dashboard?state=${currentState}`}>
@@ -129,7 +138,7 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
         </div>
         
         {selectedYear && (
-          <Select value={selectedYear.toString()} onValueChange={(v) => setSelectedYear(parseInt(v))}>
+          <Select value={selectedYear.toString()} onValueChange={(v) => handleYearChange(parseInt(v))}>
             <SelectTrigger className="w-[180px]">
               <SelectValue placeholder="Select Year" />
             </SelectTrigger>
@@ -181,72 +190,37 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
           </CardDescription>
         </CardHeader>
         <CardContent>
-          {loading || !selectedYear ? (
-            <div className="h-[400px] flex items-center justify-center text-muted-foreground">
-              Loading...
-            </div>
-          ) : (
-            <ResponsiveContainer width="100%" height={400}>
-              <AreaChart data={currentYearData}>
-                <defs>
-                  <linearGradient id={`color${metricKey}`} x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor={chartColor} stopOpacity={0.3}/>
-                    <stop offset="95%" stopColor={chartColor} stopOpacity={0}/>
-                  </linearGradient>
-                </defs>
-                <XAxis dataKey="month" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-muted" />
-                <Tooltip content={<CustomTooltip />} />
-                <Legend />
-                <Area 
-                  type="monotone" 
-                  dataKey="value" 
-                  stroke={chartColor} 
-                  fillOpacity={1} 
-                  fill={`url(#color${metricKey})`} 
-                  name={metricName}
-                  strokeWidth={2}
-                />
-              </AreaChart>
-            </ResponsiveContainer>
-          )}
+          <ResponsiveContainer width="100%" height={400}>
+            <AreaChart data={currentYearData.length > 0 ? currentYearData : MONTHS.map(m => ({ month: m, value: 0 }))}>
+              <defs>
+                <linearGradient id={`color${metricKey}`} x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="5%" stopColor={chartColor} stopOpacity={0.3}/>
+                  <stop offset="95%" stopColor={chartColor} stopOpacity={0}/>
+                </linearGradient>
+              </defs>
+              <XAxis dataKey="month" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
+              <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickCount={8} />
+              <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-muted" />
+              <Tooltip content={<CustomTooltip />} />
+              <Legend />
+              <Area 
+                type="monotone" 
+                dataKey="value" 
+                stroke={chartColor} 
+                fillOpacity={1} 
+                fill={`url(#color${metricKey})`} 
+                name={metricName}
+                strokeWidth={2}
+                isAnimationActive={true}
+                animationDuration={600}
+                animationEasing="ease-in-out"
+              />
+            </AreaChart>
+          </ResponsiveContainer>
         </CardContent>
       </Card>
 
-      {/* All Years Comparison Bar Chart */}
-      <Card className="border-primary/10">
-        <CardHeader>
-          <CardTitle>Year-over-Year Comparison</CardTitle>
-          <CardDescription>
-            Average {metricName.toLowerCase()} across all years
-          </CardDescription>
-        </CardHeader>
-        <CardContent>
-          {yearAverages.length === 0 ? (
-            <div className="h-[300px] flex items-center justify-center text-muted-foreground">
-              Loading year comparison...
-            </div>
-          ) : (
-            <ResponsiveContainer width="100%" height={300}>
-              <BarChart data={yearAverages}>
-                <XAxis dataKey="year" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-                <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-muted" />
-                <Tooltip content={<CustomTooltip />} cursor={false} />
-                <Bar 
-                  dataKey="average" 
-                  fill={chartColor} 
-                  radius={[4, 4, 0, 0]} 
-                  name={`Avg ${metricName}`}
-                  onClick={(data: any) => setSelectedYear(data.year)}
-                  style={{ cursor: 'pointer' }}
-                />
-              </BarChart>
-            </ResponsiveContainer>
-          )}
-        </CardContent>
-      </Card>
+
     </div>
   )
 }
