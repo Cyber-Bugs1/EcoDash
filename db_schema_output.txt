@@ -1,0 +1,497 @@
+
+==================================================
+DATABASE: processed_data.db
+==================================================
+Tables: ['Pollution', 'sqlite_sequence', 'Vegetation', 'Water', 'Crop', 'AccessTokens', 'FireEvents', 'MonthlyFires', 'DailyWeather', 'MonthlyWeather', 'MonthlyPollution', 'DailyPollution', 'EnhancedMonthlyData', 'SeasonalPatterns', 'WeeklySatelliteData', 'MonthlySatelliteData', 'WeeklyEnvironmentalData', 'MonthlyEnvironmentalData', 'SatelliteFireData', 'SatelliteAQData']
+
+--- Pollution ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  aod_mean: REAL
+  aod_stddev: REAL
+  aod_min: REAL
+  aod_max: REAL
+  pm25_mean: REAL
+  pm25_stddev: REAL
+  pm25_min: REAL
+  pm25_max: REAL
+  aqi_mean: INTEGER
+  aqi_category: TEXT
+  aqi_color: TEXT
+  exceeds_who_limit: BOOLEAN
+  exceeds_india_limit: BOOLEAN
+  year_over_year_change: REAL
+  trend_direction: TEXT
+  conversion_method: TEXT
+  scale_factor: REAL
+  processing_date: TIMESTAMP
+  Row count: 170
+  Sample: (1, 'Andaman and Nicobar', 2020, 302.95904266179303, 41.075999512502655, 183.54545454545453, 482.4975845410628, 24.23672341294344, 3.2860799610002123, 14.683636363636364, 38.599806763285024, 40, 'Good', 'Green', 1, 0, None, None, 'empirical_regional', 80.0, '2026-01-19 19:06:31.029629')
+
+--- sqlite_sequence ---
+  name: 
+  seq: 
+  Row count: 15
+  Sample: ('Pollution', 170)
+
+--- Vegetation ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  ndvi_mean: REAL
+  ndvi_stddev: REAL
+  ndvi_min: REAL
+  ndvi_max: REAL
+  vegetation_health: TEXT
+  data_source: TEXT
+  collection_date: TIMESTAMP
+  Row count: 136
+  Sample: (137, 'Andaman and Nicobar', 2020, 0.7126269028660499, 0.1252134852588227, -0.09346363636363636, 0.90355, 'Dense', 'MODIS_MOD13A2', '2026-01-20 02:06:57.607023')
+
+--- Water ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  surface_water_mean: REAL
+  surface_water_max: REAL
+  surface_water_p25: REAL
+  surface_water_p75: REAL
+  rainfall_annual_mm: REAL
+  rainfall_stddev: REAL
+  rainfall_min: REAL
+  rainfall_max: REAL
+  dry_months_count: INTEGER
+  rainfall_variability_cv: REAL
+  wettest_month_mm: REAL
+  driest_month_mm: REAL
+  rainfall_category: TEXT
+  water_stress_level: TEXT
+  data_source: TEXT
+  collection_date: TIMESTAMP
+  Row count: 170
+  Sample: (1, 'Andaman and Nicobar', 2020, 91.53248285939105, 100.0, 90.00000000000009, 96.99999999999996, 3373.8566919986324, 1263.6965929488733, 1412.2202434793653, 6301.590045750141, 4, 80.9, 657.8, 6.7, 'Very High', 'Moderate', 'JRC_CHIRPS', '2026-01-20 05:18:57.732896')
+
+--- Crop ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  cropland_percent: REAL
+  kharif_ndvi: REAL
+  rabi_ndvi: REAL
+  evi_mean: REAL
+  evi_max: REAL
+  agricultural_intensity: TEXT
+  crop_health_category: TEXT
+  data_source: TEXT
+  collection_date: TIMESTAMP
+  Row count: 136
+  Sample: (1, 'Andaman and Nicobar', 2020, 0.21409095709257084, 0.6380511034834088, 0.7872098460218914, 0.48375881706897783, 0.7143054746954606, 'Very Low', 'Excellent', 'MODIS_MCD12Q1_MOD13A2', '2026-01-20 06:07:27.916340')
+
+--- AccessTokens ---
+  id: INTEGER
+  user_id: INTEGER
+  token: TEXT
+  token_type: TEXT
+  expires_at: TIMESTAMP
+  created_at: TIMESTAMP
+  is_revoked: BOOLEAN
+  Row count: 0
+
+--- FireEvents ---
+  id: INTEGER
+  state_name: TEXT
+  latitude: REAL
+  longitude: REAL
+  date: TEXT
+  time: TEXT
+  satellite: TEXT
+  confidence: REAL
+  brightness: REAL
+  frp: REAL
+  daynight: TEXT
+  data_source: TEXT
+  Row count: 1980
+  Sample: (1, 'Maharashtra', 15.7601, 74.8827, '2020-02-08', '04:47', 'VIIRS', 0.5, 367.7, 45.61, 'N', 'NASA FIRMS (simulated)')
+
+--- MonthlyFires ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  month: INTEGER
+  fire_count: INTEGER
+  total_frp: REAL
+  avg_frp: REAL
+  max_frp: REAL
+  high_confidence_count: INTEGER
+  data_source: TEXT
+  collection_date: TEXT
+  Row count: 195
+  Sample: (196, 'Andhra Pradesh', 2020, 2, 2, 89.96, 44.98, 47.16, 1, 'NASA FIRMS (simulated)', '2026-01-22 05:54:22')
+
+--- DailyWeather ---
+  id: INTEGER
+  state_name: TEXT
+  date: TEXT
+  temp_mean: REAL
+  temp_max: REAL
+  temp_min: REAL
+  humidity_mean: REAL
+  wind_speed_mean: REAL
+  wind_speed_max: REAL
+  precipitation_mm: REAL
+  rain_mm: REAL
+  sunshine_hours: REAL
+  uv_index_max: REAL
+  weather_code: INTEGER
+  data_source: TEXT
+  Row count: 0
+
+--- MonthlyWeather ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  month: INTEGER
+  temp_mean: REAL
+  temp_max: REAL
+  temp_min: REAL
+  humidity_mean: REAL
+  wind_speed_mean: REAL
+  total_precipitation_mm: REAL
+  rain_days: INTEGER
+  sunshine_hours_avg: REAL
+  data_source: TEXT
+  collection_date: TEXT
+  Row count: 1440
+  Sample: (1, 'Delhi', 2020, 1, 11.0, 17.2, 7.9, 37.6, 12.4, 13.3, 1, None, 'Synthetic-IMD-Calibrated', '2026-01-22T11:31:29.832672')
+
+--- MonthlyPollution ---
+  id: INTEGER
+  state_name: TEXT
+  city: TEXT
+  year: INTEGER
+  month: INTEGER
+  pm25_mean: REAL
+  pm25_max: REAL
+  pm25_min: REAL
+  pm25_count: INTEGER
+  pm10_mean: REAL
+  no2_mean: REAL
+  o3_mean: REAL
+  co_mean: REAL
+  aqi_mean: REAL
+  data_source: TEXT
+  collection_date: TEXT
+  Row count: 2220
+  Sample: (6661, 'Delhi', 'Delhi', 2020, 1, 206.28, 268.17, 144.4, 512, None, None, None, None, 366.0, 'Synthetic-CPCB-Calibrated', '2026-01-23T10:45:05.840104')
+
+--- DailyPollution ---
+  id: INTEGER
+  state_name: TEXT
+  city: TEXT
+  date: TEXT
+  pm25_mean: REAL
+  pm25_max: REAL
+  pm25_min: REAL
+  pm10_mean: REAL
+  no2_mean: REAL
+  o3_mean: REAL
+  aqi: REAL
+  data_source: TEXT
+  Row count: 0
+
+--- EnhancedMonthlyData ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  month: INTEGER
+  season: TEXT
+  pm25_mean: REAL
+  pm25_max: REAL
+  pm25_min: REAL
+  aqi_mean: REAL
+  pm10_mean: REAL
+  no2_mean: REAL
+  temp_mean: REAL
+  temp_max: REAL
+  temp_min: REAL
+  humidity_mean: REAL
+  wind_speed_mean: REAL
+  precipitation_mm: REAL
+  rain_days: INTEGER
+  fire_count: INTEGER
+  fire_frp_avg: REAL
+  fire_frp_total: REAL
+  pollution_severity: TEXT
+  weather_pollution_correlation: REAL
+  seasonal_factor: REAL
+  collection_date: TEXT
+  Row count: 1440
+  Sample: (1441, 'Andhra Pradesh', 2020, 1, 'Winter', 79.39500000000001, 111.74, 50.99, 165.0, None, None, 21.6, 27.8, 17.6, 64.4, 8.5, 15.7, 1, 0, 0.0, 0.0, 'Poor', None, None, '2026-01-22T11:56:40.549594')
+
+--- SeasonalPatterns ---
+  id: INTEGER
+  state_name: TEXT
+  season: TEXT
+  pm25_seasonal_avg: REAL
+  pm25_seasonal_std: REAL
+  pm25_seasonal_factor: REAL
+  temp_seasonal_avg: REAL
+  humidity_seasonal_avg: REAL
+  precip_seasonal_total: REAL
+  fire_seasonal_avg: REAL
+  data_years: TEXT
+  Row count: 80
+  Sample: (81, 'Andhra Pradesh', 'Winter', 84.36533333333334, 32.354480428613826, 1.5603320458797891, 22.633333333333333, 63.36, 219.2, 0.8, '2020,2021,2022,2023,2024')
+
+--- WeeklySatelliteData ---
+  id: INTEGER
+  state_name: TEXT
+  region: TEXT
+  year: INTEGER
+  week: INTEGER
+  aod_mean: REAL
+  aod_max: REAL
+  aqi_mean: REAL
+  pm25_estimated: REAL
+  pm10_estimated: REAL
+  humidity_mean: REAL
+  wind_speed_mean: REAL
+  wind_direction_mode: INTEGER
+  temperature_mean: REAL
+  temperature_max: REAL
+  temperature_min: REAL
+  is_extreme_event: INTEGER
+  extreme_event_type: TEXT
+  data_quality_score: REAL
+  data_source: TEXT
+  collection_date: TEXT
+  Row count: 5200
+  Sample: (5201, 'Delhi', 'North India', 2020, 1, 1.167, 1.409, 317.0, 142.6, 216.1, 37.0, 11.9, 45, 5.1, 15.3, -3.2, 0, None, 0.81, 'Satellite-Synthetic-Climatology', '2026-01-22T16:23:50.668829')
+
+--- MonthlySatelliteData ---
+  id: INTEGER
+  state_name: TEXT
+  region: TEXT
+  year: INTEGER
+  month: INTEGER
+  aod_mean: REAL
+  aod_trend: TEXT
+  aqi_mean: REAL
+  aqi_max: REAL
+  pm25_mean: REAL
+  humidity_mean: REAL
+  wind_speed_mean: REAL
+  temperature_mean: REAL
+  seasonal_factor: REAL
+  is_monsoon: INTEGER
+  is_winter_inversion: INTEGER
+  data_source: TEXT
+  Row count: 1200
+  Sample: (1, 'Andhra Pradesh', 'South India', 2020, 1, 0.53925, None, 70.0, 79.0, 42.0, 38.75, 11.975, 21.15, 1.0, 0, 1, 'Aggregated-Weekly')
+
+--- WeeklyEnvironmentalData ---
+  id: INTEGER
+  state_name: TEXT
+  region: TEXT
+  year: INTEGER
+  week: INTEGER
+  pm25: REAL
+  pm10: REAL
+  no2: REAL
+  so2: REAL
+  aqi: REAL
+  rainfall_mm: REAL
+  groundwater_level: REAL
+  surface_water_pct: REAL
+  water_stress_index: REAL
+  ndvi: REAL
+  evi: REAL
+  forest_health_index: REAL
+  crop_growth_index: REAL
+  estimated_yield_index: REAL
+  cropland_pct: REAL
+  temperature_mean: REAL
+  humidity_mean: REAL
+  wind_speed: REAL
+  data_source: TEXT
+  collection_date: TEXT
+  Row count: 5200
+  Sample: (1, 'Delhi', 'North India', 2020, 1, 234.4, 360.2, 61.43, 16.01, 388.0, 79.1, 0.41, 1.48, 0.12, 0.241, 0.169, 0.26, 0.27, 0.23, 30.0, 12.3, 27.1, 15.8, 'Multi-Source-Calibrated', '2026-01-22T16:36:25.707917')
+
+--- MonthlyEnvironmentalData ---
+  id: INTEGER
+  state_name: TEXT
+  region: TEXT
+  year: INTEGER
+  month: INTEGER
+  pm25_mean: REAL
+  pm25_max: REAL
+  pm10_mean: REAL
+  aqi_mean: REAL
+  rainfall_total_mm: REAL
+  groundwater_level: REAL
+  water_stress_index: REAL
+  ndvi_mean: REAL
+  forest_health: REAL
+  crop_health_index: REAL
+  yield_prediction: REAL
+  temperature_mean: REAL
+  humidity_mean: REAL
+  data_source: TEXT
+  Row count: 1200
+  Sample: (1, 'Andhra Pradesh', 'South India', 2020, 1, 66.0, 73.7, 122.1, 120.75, 327.8, 0.4, 0.20500000000000002, 0.3115, 0.3825, 0.29, 0.25, 19.875, 35.6, 'Monthly-Aggregated')
+
+--- SatelliteFireData ---
+  id: INTEGER
+  latitude: REAL
+  longitude: REAL
+  brightness: REAL
+  scan: REAL
+  track: REAL
+  acq_date: TEXT
+  acq_time: TEXT
+  satellite: TEXT
+  confidence: TEXT
+  version: TEXT
+  bright_t31: REAL
+  frp: REAL
+  daynight: TEXT
+  state_name: TEXT
+  downloaded_at: TEXT
+  Row count: 3930
+  Sample: (1, 22.10211, 97.47273, 0.0, 0.75, 0.77, '2026-01-21', '546', 'N', 'n', '2.0NRT', 0.0, 4.09, 'D', 'Assam', '2026-01-22T23:50:23.571528')
+
+--- SatelliteAQData ---
+  id: INTEGER
+  location: TEXT
+  state_name: TEXT
+  parameter: TEXT
+  value: REAL
+  unit: TEXT
+  date: TEXT
+  latitude: REAL
+  longitude: REAL
+  source: TEXT
+  downloaded_at: TEXT
+  Row count: 0
+
+==================================================
+DATABASE: pollution.db
+==================================================
+Tables: ['Pollution', 'sqlite_sequence', 'Vegetation']
+
+--- Pollution ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  aod_mean: REAL
+  aod_stddev: REAL
+  aod_min: REAL
+  aod_max: REAL
+  pm25_mean: REAL
+  pm25_stddev: REAL
+  pm25_min: REAL
+  pm25_max: REAL
+  aqi_mean: INTEGER
+  aqi_category: TEXT
+  aqi_color: TEXT
+  exceeds_who_limit: BOOLEAN
+  exceeds_india_limit: BOOLEAN
+  year_over_year_change: REAL
+  trend_direction: TEXT
+  conversion_method: TEXT
+  scale_factor: REAL
+  processing_date: TIMESTAMP
+  Row count: 170
+  Sample: (1, 'Andaman and Nicobar', 2020, 302.95904266179303, 41.075999512502655, 183.54545454545453, 482.4975845410628, 24.23672341294344, 3.2860799610002123, 14.683636363636364, 38.599806763285024, 40, 'Good', 'Green', 1, 0, None, None, 'empirical_regional', 80.0, '2026-01-19 19:06:31.029629')
+
+--- sqlite_sequence ---
+  name: 
+  seq: 
+  Row count: 2
+  Sample: ('Pollution', 170)
+
+--- Vegetation ---
+  id: INTEGER
+  state_name: TEXT
+  year: INTEGER
+  ndvi_mean: REAL
+  ndvi_stddev: REAL
+  ndvi_min: REAL
+  ndvi_max: REAL
+  vegetation_health: TEXT
+  data_source: TEXT
+  collection_date: TIMESTAMP
+  Row count: 136
+  Sample: (137, 'Andaman and Nicobar', 2020, 0.7126269028660499, 0.1252134852588227, -0.09346363636363636, 0.90355, 'Dense', 'MODIS_MOD13A2', '2026-01-20 02:06:57.607023')
+
+==================================================
+DATABASE: raw_data.db
+==================================================
+Tables: ['raw_pollution_data', 'processed_pollution_data', 'country_pollution_data']
+
+--- raw_pollution_data ---
+  id: INTEGER
+  state_name: VARCHAR(100)
+  year: INTEGER
+  month: INTEGER
+  aod_mean: FLOAT
+  aod_stddev: FLOAT
+  aod_min: FLOAT
+  aod_max: FLOAT
+  blh: FLOAT
+  temperature: FLOAT
+  relative_humidity: FLOAT
+  data_points_count: INTEGER
+  collection_date: DATETIME
+  source: VARCHAR(200)
+  notes: VARCHAR(500)
+  Row count: 306
+  Sample: (1, 'Andaman and Nicobar', 2020, None, 302.95904266179303, 41.075999512502655, 183.54545454545453, 482.4975845410628, None, None, None, None, '2026-01-19 18:11:37.644294', 'MODIS_MCD19A2_AOD', 'Loaded from India_Pollution_AOD_2020.csv')
+
+--- processed_pollution_data ---
+  id: INTEGER
+  state_name: VARCHAR(100)
+  year: INTEGER
+  aod_mean: FLOAT
+  aod_stddev: FLOAT
+  aod_min: FLOAT
+  aod_max: FLOAT
+  blh: FLOAT
+  temperature: FLOAT
+  relative_humidity: FLOAT
+  pm25_mean: FLOAT
+  pm25_stddev: FLOAT
+  pm25_min: FLOAT
+  pm25_max: FLOAT
+  aqi_mean: INTEGER
+  aqi_category: VARCHAR(20)
+  aqi_color: VARCHAR(20)
+  year_over_year_change: FLOAT
+  trend_direction: VARCHAR(20)
+  exceeds_who_limit: BOOLEAN
+  exceeds_india_limit: BOOLEAN
+  conversion_method: VARCHAR(50)
+  hygroscopic_factor: FLOAT
+  processing_date: DATETIME
+  model_version: VARCHAR(50)
+  Row count: 170
+  Sample: (1, 'Andaman and Nicobar', 2020, 302.95904266179303, 41.075999512502655, 183.54545454545453, 482.4975845410628, None, None, None, 24.23672341294344, 3.2860799610002123, 14.683636363636364, 38.599806763285024, 40, 'Good', 'Green', None, None, 1, 0, 'empirical_regional', 80.0, '2026-01-19 19:06:31.029629', 'v2.0_empirical')
+
+--- country_pollution_data ---
+  id: INTEGER
+  year: INTEGER
+  pm25_national_avg: FLOAT
+  pm25_max_state: VARCHAR(100)
+  pm25_max_value: FLOAT
+  pm25_min_state: VARCHAR(100)
+  pm25_min_value: FLOAT
+  states_above_safe_limit: INTEGER
+  total_states_measured: INTEGER
+  national_std_dev: FLOAT
+  year_over_year_change: FLOAT
+  trend_direction: VARCHAR(20)
+  processing_date: DATETIME
+  Row count: 5
+  Sample: (1, 2020, 55.147250989174545, 'Bihar', 112.98296512854064, 'Sikkim', 10.600777815452155, 32, 34, 25.150997915483817, None, None, '2026-01-19 19:06:31.115457')
