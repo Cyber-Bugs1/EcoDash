@@ -31,8 +31,9 @@ export function Header({ states = [], currentState = "Delhi" }: HeaderProps) {
             href="/" 
             className="flex items-center gap-2 group cursor-pointer transition-all duration-300 hover:scale-105"
           >
-            <Image 
-              src="/logo.png?v=2" 
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src="/logo.png" 
               alt="EcoDash Logo" 
               width={32} 
               height={32} 

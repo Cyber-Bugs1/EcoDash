@@ -75,12 +75,12 @@ const MONTHS = [
     'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'
 ];
 
-// List of Indian states for the dropdown
+// List of Indian states for the dropdown (matching API endpoint)
 const INDIAN_STATES = [
     'Andhra Pradesh', 'Arunachal Pradesh', 'Assam', 'Bihar', 'Chhattisgarh',
-    'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jharkhand',
-    'Karnataka', 'Kerala', 'Madhya Pradesh', 'Maharashtra', 'Manipur',
-    'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan',
+    'Delhi', 'Goa', 'Gujarat', 'Haryana', 'Himachal Pradesh', 'Jammu and Kashmir',
+    'Jharkhand', 'Karnataka', 'Kerala', 'Ladakh', 'Madhya Pradesh', 'Maharashtra',
+    'Manipur', 'Meghalaya', 'Mizoram', 'Nagaland', 'Odisha', 'Punjab', 'Rajasthan',
     'Sikkim', 'Tamil Nadu', 'Telangana', 'Tripura', 'Uttar Pradesh',
     'Uttarakhand', 'West Bengal'
 ];
@@ -576,8 +576,12 @@ export async function fetchMonthlyData(state: string, metric: MetricType): Promi
 }
 
 export async function getAvailableYears(): Promise<number[]> {
-    const currentYear = new Date().getFullYear();
-    return [currentYear, currentYear - 1, currentYear - 2];
+    // 2024 is actual data, 2025-2035 are predicted
+    const years = [];
+    for (let year = 2024; year <= 2035; year++) {
+        years.push(year);
+    }
+    return years;
 }
 
 // Helper function to get category color

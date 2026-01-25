@@ -94,7 +94,7 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
         // Convert monthly_averages to MonthlyData format
         const monthlyData: MonthlyData[] = MONTHS.map((month, index) => ({
           month,
-          value: parseFloat(response.monthly_averages[index]?.toFixed(2) || '0'),
+          value: response.monthly_averages[index] || 0,
         }));
         setCurrentYearData(monthlyData)
         
@@ -114,10 +114,22 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
     loadYearData()
   }, [selectedYear, currentState, metricKey])
 
-  // Use API stats or fallback to calculated values
-  const avgValue = annualStats ? annualStats.mean.toFixed(1) : '0'
-  const maxValue = annualStats ? annualStats.max.toFixed(1) : '0'
-  const minValue = annualStats ? annualStats.min.toFixed(1) : '0'
+  // Use API stats without rounding
+  const avgValue = annualStats ? annualStats.mean : 0
+  const maxValue = annualStats ? annualStats.max : 0
+  const minValue = annualStats ? annualStats.min : 0
+  
+  // Fixed Y-axis ranges per metric (min always 0, max is appropriate ceiling)
+  const METRIC_Y_AXIS_MAX: Record<string, number> = {
+    pm25: 350,        // PM2.5 in µg/m³
+    aod: 2,           // Aerosol Optical Depth (typically 0-2)
+    water_levels: 30, // Water levels in meters
+    crop_yield: 25,   // Crop yield in tonnes/ha
+    vegetation: 1,    // Vegetation index (NDVI 0-1)
+  }
+  
+  const chartMin = 0
+  const chartMax = METRIC_Y_AXIS_MAX[metricKey] || 100
 
   return (
     <div className="space-y-6">
@@ -145,7 +157,7 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
             <SelectContent>
               {years.map((year) => (
                 <SelectItem key={year} value={year.toString()}>
-                  {year}
+                  {year} {year >= 2025 && <span className="text-yellow-500 font-medium">Predicted</span>}
                 </SelectItem>
               ))}
             </SelectContent>
@@ -199,7 +211,7 @@ export function MetricDetail({ metricKey, metricName, metricUnit, metricDescript
                 </linearGradient>
               </defs>
               <XAxis dataKey="month" stroke="#888888" fontSize={12} tickLine={false} axisLine={false} />
-              <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickCount={8} />
+              <YAxis stroke="#888888" fontSize={12} tickLine={false} axisLine={false} tickCount={8} domain={[chartMin, chartMax]} />
               <CartesianGrid strokeDasharray="3 3" vertical={false} className="stroke-muted" />
               <Tooltip content={<CustomTooltip />} />
               <Legend />

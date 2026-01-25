@@ -29,8 +29,8 @@ export function MetricNavbar() {
   }
 
   return (
-    <nav className="mb-6 overflow-x-auto">
-      <div className="flex gap-2 min-w-max">
+    <nav className="mb-6 overflow-hidden">
+      <div className="flex gap-2 min-w-max py-1 px-1">
         {METRICS.map((metric) => {
           const isActive = pathname.includes(metric.key)
           const Icon = metric.icon
