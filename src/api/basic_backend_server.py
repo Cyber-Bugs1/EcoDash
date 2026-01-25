@@ -49,8 +49,13 @@ def log_response(response):
 # Initialize Predictor
 DB_PATH = PROJECT_ROOT / "processed_data.db"
 predictor = UnifiedEnvironmentalPredictor(str(DB_PATH))
-# No longer load a single 78MB file; just verify the split models directory
-predictor.load("") 
+MODEL_PATH = PROJECT_ROOT / "models" / "unified_predictor.pkl"
+if MODEL_PATH.exists():
+    try:
+        predictor.load(str(MODEL_PATH))
+        print(f"Loaded pre-trained models from {MODEL_PATH}")
+    except Exception as e:
+        print(f"Failed to load models: {e}")
 
 # --- Helper Functions ---
 
@@ -459,25 +464,13 @@ def data_output_service():
     conn.close()
     return jsonify(result)
 
-# --- Service 2: Pollution Level Prediction (PLACEHOLDER) ---
-@app.route('/api/predict/pollution', methods=['GET', 'POST'])
-def pollution_prediction_service():
-    return jsonify({"error": "Service 2 is not yet implemented"}), 501
 
-# --- Service 3: Historical Difference Service (PLACEHOLDER) ---
-@app.route('/api/history/diff', methods=['GET', 'POST'])
-def historical_diff_service():
-    return jsonify({"error": "Service 3 is not yet implemented"}), 501
 
-# --- Service 4: Comparison & Extrapolation Service (PLACEHOLDER) ---
 @app.route('/api/compare', methods=['GET', 'POST'])
 def comparison_service():
     return jsonify({"error": "Service 4 is not yet implemented"}), 501
 
-# --- Service 5: Notification Service (PLACEHOLDER) ---
-@app.route('/api/notification', methods=['GET', 'POST'])
-def notification_service():
-    return jsonify({"error": "Service 5 is not yet implemented"}), 501
+
 
 if __name__ == '__main__':
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")

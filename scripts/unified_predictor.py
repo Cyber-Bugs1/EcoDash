@@ -68,32 +68,6 @@ class UnifiedEnvironmentalPredictor:
         self.trained_targets = []
         self.feature_names = {} # Dictionary: target -> list of feature names
         
-        # New: Tracking for lazy loading
-        self.project_root = Path(__file__).parent.parent
-        self.models_dir = self.project_root / "models" / "targets"
-
-    def _lazy_load_target(self, target: str):
-        """Load a specific target's model files if not already in memory."""
-        if target in self.models:
-            return True
-        
-        target_file = self.models_dir / f"{target}.pkl"
-        if not target_file.exists():
-            return False
-        
-        try:
-            with open(target_file, 'rb') as f:
-                data = pickle.load(f)
-                self.models[target] = data.get('model')
-                self.scalers[target] = data.get('scaler')
-                self.feature_names[target] = data.get('feature_names')
-                if target not in self.trained_targets:
-                    self.trained_targets.append(target)
-            return True
-        except Exception as e:
-            print(f"[ERROR] Failed to lazy-load {target}: {e}")
-            return False
-
     def load_training_data(self, target: str) -> tuple:
         """Load training data for a specific target variable."""
         conn = sqlite3.connect(self.db_path)
@@ -227,14 +201,22 @@ class UnifiedEnvironmentalPredictor:
         """
         Make a prediction for the specified target.
         """
-        # Ensure model is loaded (lazy loading)
-        if not self._lazy_load_target(target):
-            # If no saved model, attempt to train from database
+        if target not in self.trained_targets:
             self.train(target, verbose=False)
+        
+        # Get correct feature names for this target
+        # Fallback to empty list or default if missing, though train usually sets it.
+        # Handling backward compatibility if loading old pickle without dict:
+        if isinstance(self.feature_names, list):
+             # Try to guess or re-train if ambiguous? 
+             # For now assume re-training fixed the structure.
+             pass 
         
         target_features = self.feature_names.get(target, [])
         if not target_features:
-             return {'error': f'No features found for target: {target}'}
+            # Re-train to populate features
+             self.train(target, verbose=False)
+             target_features = self.feature_names.get(target, [])
 
         # Prepare feature vector
         feature_vector = []
@@ -261,7 +243,7 @@ class UnifiedEnvironmentalPredictor:
         return {
             'target': target,
             'description': PREDICTION_TARGETS[target]['description'],
-            'predicted_value': round(float(prediction), 3),
+            'predicted_value': round(prediction, 3),
             'input_features': features,
         }
     
@@ -269,9 +251,6 @@ class UnifiedEnvironmentalPredictor:
         """
         Predict for a specific state using its typical environmental profile.
         """
-        # Trigger lazy load early to ensure target validity
-        self._lazy_load_target(target)
-        
         conn = sqlite3.connect(self.db_path)
         cursor = conn.cursor()
         
@@ -463,19 +442,36 @@ class UnifiedEnvironmentalPredictor:
         return result
     
     def save(self, path: str):
-        """No longer used for unified save, use split_models.py instead."""
-        print("[INFO] Unified save is deprecated. Use scripts/split_models.py")
+        """Save all trained models."""
+        data = {
+            'models': self.models,
+            'scalers': self.scalers,
+            'trained_targets': self.trained_targets,
+            'feature_names': self.feature_names,
+        }
+        with open(path, 'wb') as f:
+            pickle.dump(data, f)
+        print(f"[OK] Models saved to {path}")
     
     def load(self, path: str):
-        """Verify the presence of split model files."""
-        if not self.models_dir.exists():
-            print(f"[ERROR] Models directory not found: {self.models_dir}")
-            return
+        """Load trained models."""
+        with open(path, 'rb') as f:
+            data = pickle.load(f)
+        self.models = data['models']
+        self.scalers = data['scalers']
+        self.trained_targets = data['trained_targets']
         
-        # Count available model files
-        available_files = list(self.models_dir.glob("*.pkl"))
-        print(f"[OK] Found {len(available_files)} individualized model files in {self.models_dir}")
-        self.trained_targets = [f.stem for f in available_files]
+        # Handle new format (dict) vs old (list)
+        f_names = data.get('feature_names', {})
+        if isinstance(f_names, list):
+            # Convert old format to dict if loading old model (best effort)
+            # Or just set empty and verify target loop
+            # But we are re-training anyway.
+            self.feature_names = {t: f_names for t in self.trained_targets}
+        else:
+            self.feature_names = f_names
+            
+        print(f"[OK] Loaded {len(self.trained_targets)} models from {path}")
 
 
 def main():
