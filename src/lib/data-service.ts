@@ -342,8 +342,8 @@ export async function checkBackendHealth(): Promise<HealthStatus> {
     }
 }
 
-// Helper to make API calls with query parameters and logging
-async function apiCall(endpoint: string, params: Record<string, unknown>): Promise<any> {
+// Helper to make API calls with query parameters, logging, and retry logic
+async function apiCall(endpoint: string, params: Record<string, unknown>, retries: number = 3): Promise<any> {
     const baseUrl = getApiBaseUrl();
     const queryString = new URLSearchParams(
         Object.entries(params)
@@ -353,44 +353,56 @@ async function apiCall(endpoint: string, params: Record<string, unknown>): Promi
 
     const url = `${baseUrl}${endpoint}?${queryString}`;
     const startTime = Date.now();
+    let lastError: Error | null = null;
 
-    try {
-        const response = await fetch(url, {
-            method: 'GET',
-            cache: 'no-store',
-        });
+    for (let attempt = 1; attempt <= retries; attempt++) {
+        try {
+            const response = await fetch(url, {
+                method: 'GET',
+                cache: 'no-store',
+                signal: AbortSignal.timeout(30000), // 30 second timeout
+            });
 
-        if (!response.ok) {
-            throw new Error(`API error: ${response.status}`);
+            if (!response.ok) {
+                throw new Error(`API error: ${response.status}`);
+            }
+
+            const data = await response.json();
+            const duration = Date.now() - startTime;
+
+            // Log successful call
+            logApiCall({
+                method: 'GET',
+                url,
+                request: params,
+                response: data,
+                duration,
+            });
+
+            return data;
+        } catch (error) {
+            lastError = error instanceof Error ? error : new Error(String(error));
+            console.log(`API call attempt ${attempt}/${retries} failed:`, lastError.message);
+
+            // If not the last attempt, wait before retrying
+            if (attempt < retries) {
+                await new Promise(resolve => setTimeout(resolve, 1000 * attempt)); // Exponential backoff
+            }
         }
-
-        const data = await response.json();
-        const duration = Date.now() - startTime;
-
-        // Log successful call
-        logApiCall({
-            method: 'GET',
-            url,
-            request: params,
-            response: data,
-            duration,
-        });
-
-        return data;
-    } catch (error) {
-        const duration = Date.now() - startTime;
-
-        // Log failed call
-        logApiCall({
-            method: 'GET',
-            url,
-            request: params,
-            error: error instanceof Error ? error.message : String(error),
-            duration,
-        });
-
-        throw error;
     }
+
+    const duration = Date.now() - startTime;
+
+    // Log failed call after all retries exhausted
+    logApiCall({
+        method: 'GET',
+        url,
+        request: params,
+        error: lastError?.message || 'Unknown error after all retries',
+        duration,
+    });
+
+    throw lastError;
 }
 
 export async function fetchStates(): Promise<string[]> {

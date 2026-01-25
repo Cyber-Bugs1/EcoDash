@@ -13,8 +13,8 @@ export default function LandingPage() {
   return (
     <div className="relative min-h-screen overflow-hidden bg-black text-white">
       {/* Animated Orb Background */}
-      <div className="absolute inset-0 z-0 flex items-center justify-center">
-        <div className="w-[800px] h-[800px] md:w-[1000px] md:h-[1000px] opacity-60">
+      <div className="absolute inset-0 z-0 flex items-center justify-center overflow-hidden">
+        <div className="w-[500px] h-[500px] md:w-[800px] md:h-[800px] lg:w-[1000px] lg:h-[1000px] opacity-60 max-w-none -translate-y-[20%] md:translate-y-0">
           <Orb
             hue={120}
             hoverIntensity={0.3}
@@ -104,7 +104,7 @@ export default function LandingPage() {
           <ScrollFloat direction="up" offset={30}>
             <h2 className="text-2xl font-bold text-white text-center mb-8">Built With 💚 By</h2>
           </ScrollFloat>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 place-items-center">
             {/* Developer 1 */}
             <ScrollFloat direction="up" offset={40}>
               <Magnet padding={80} magnetStrength={3}>
