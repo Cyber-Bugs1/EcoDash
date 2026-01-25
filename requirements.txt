@@ -1,0 +1,7 @@
+Flask==3.1.0
+Flask-Cors==5.0.0
+numpy==1.26.4
+pandas==2.2.1
+scikit-learn==1.4.1.post1
+gunicorn==21.2.0
+# Add any other specific versions if needed, based on pip freeze
