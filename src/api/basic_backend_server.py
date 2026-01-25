@@ -49,13 +49,8 @@ def log_response(response):
 # Initialize Predictor
 DB_PATH = PROJECT_ROOT / "processed_data.db"
 predictor = UnifiedEnvironmentalPredictor(str(DB_PATH))
-MODEL_PATH = PROJECT_ROOT / "models" / "unified_predictor.pkl"
-if MODEL_PATH.exists():
-    try:
-        predictor.load(str(MODEL_PATH))
-        print(f"Loaded pre-trained models from {MODEL_PATH}")
-    except Exception as e:
-        print(f"Failed to load models: {e}")
+# No longer load a single 78MB file; just verify the split models directory
+predictor.load("") 
 
 # --- Helper Functions ---
 
