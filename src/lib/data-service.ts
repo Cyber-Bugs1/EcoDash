@@ -47,7 +47,7 @@ export interface StateSummaryResponse {
     state: string;
     summary: {
         AOD: MetricSummary;
-        'Crop Yield': MetricSummary;
+        'Crop Yield (t/ha)': MetricSummary;
         'PM2.5': MetricSummary;
         Vegetation: MetricSummary;
         'Water Level': MetricSummary;
@@ -100,7 +100,7 @@ const TEST_STATE_SUMMARY: Record<string, StateSummaryResponse> = {
                 mean_value: 1.039,
                 spike_detected_next_10_months: true
             },
-            'Crop Yield': {
+            'Crop Yield (t/ha)': {
                 category: 'Average',
                 mean_percentage_of_max: 55.6,
                 mean_value: 0.556,
@@ -141,7 +141,7 @@ const TEST_STATE_SUMMARY: Record<string, StateSummaryResponse> = {
                 mean_value: 0.725,
                 spike_detected_next_10_months: false
             },
-            'Crop Yield': {
+            'Crop Yield (t/ha)': {
                 category: 'Good',
                 mean_percentage_of_max: 78.3,
                 mean_value: 0.783,
@@ -182,7 +182,7 @@ const TEST_STATE_SUMMARY: Record<string, StateSummaryResponse> = {
                 mean_value: 0.321,
                 spike_detected_next_10_months: false
             },
-            'Crop Yield': {
+            'Crop Yield (t/ha)': {
                 category: 'Excellent',
                 mean_percentage_of_max: 89.2,
                 mean_value: 0.892,
@@ -223,7 +223,7 @@ const TEST_STATE_SUMMARY: Record<string, StateSummaryResponse> = {
                 mean_value: 0.952,
                 spike_detected_next_10_months: true
             },
-            'Crop Yield': {
+            'Crop Yield (t/ha)': {
                 category: 'Poor',
                 mean_percentage_of_max: 35.4,
                 mean_value: 0.354,
@@ -275,7 +275,7 @@ function generateTestDataForState(state: string): StateSummaryResponse {
                 mean_value: baseAod,
                 spike_detected_next_10_months: rand(0, 1) > 0.6
             },
-            'Crop Yield': {
+            'Crop Yield (t/ha)': {
                 category: rand(0, 1) > 0.5 ? 'Good' : 'Average',
                 mean_percentage_of_max: parseFloat(rand(40, 90).toFixed(1)),
                 mean_value: parseFloat(rand(0.4, 0.9).toFixed(3)),
@@ -472,7 +472,7 @@ export async function fetchMonthlyDataForYear(
                 baseValue = summary.summary.Vegetation.mean_value;
                 break;
             case 'crop_yield':
-                baseValue = summary.summary['Crop Yield'].mean_value;
+                baseValue = summary.summary['Crop Yield (t/ha)'].mean_value;
                 break;
             case 'water_levels':
                 baseValue = summary.summary['Water Level'].mean_value;
