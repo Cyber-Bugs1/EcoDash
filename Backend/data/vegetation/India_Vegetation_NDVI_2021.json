@@ -1,0 +1,283 @@
+{
+  "data_type": "MODIS_NDVI",
+  "year": 2021,
+  "states": [
+    {
+      "state_name": "Andaman and Nicobar",
+      "year": 2021,
+      "ndvi_mean": 0.7128969402585046,
+      "ndvi_stddev": 0.12493648551491413,
+      "ndvi_min": -0.1957,
+      "ndvi_max": 0.9965
+    },
+    {
+      "state_name": "Andhra Pradesh",
+      "year": 2021,
+      "ndvi_mean": 0.5015222896915998,
+      "ndvi_stddev": 0.1013030219740984,
+      "ndvi_min": -0.1856,
+      "ndvi_max": 0.8771
+    },
+    {
+      "state_name": "Arunachal Pradesh",
+      "year": 2021,
+      "ndvi_mean": 0.6683537388473187,
+      "ndvi_stddev": 0.1341490780528186,
+      "ndvi_min": -0.02248695652173913,
+      "ndvi_max": 0.8632869565217391
+    },
+    {
+      "state_name": "Assam",
+      "year": 2021,
+      "ndvi_mean": 0.5718533507227624,
+      "ndvi_stddev": 0.16787147043907197,
+      "ndvi_min": -0.11270434782608695,
+      "ndvi_max": 0.860704347826087
+    },
+    {
+      "state_name": "Bihar",
+      "year": 2021,
+      "ndvi_mean": 0.4619442850202908,
+      "ndvi_stddev": 0.08456428793158148,
+      "ndvi_min": -0.07834782608695652,
+      "ndvi_max": 0.7734913043478261
+    },
+    {
+      "state_name": "Chandigarh",
+      "year": 2021,
+      "ndvi_mean": 0.4475974556496487,
+      "ndvi_stddev": 0.059472964035781846,
+      "ndvi_min": 0.29432608695652174,
+      "ndvi_max": 0.6099391304347827
+    },
+    {
+      "state_name": "Chhattisgarh",
+      "year": 2021,
+      "ndvi_mean": 0.5140272226772183,
+      "ndvi_stddev": 0.09076167496825017,
+      "ndvi_min": -0.06392,
+      "ndvi_max": 0.8000565217391304
+    },
+    {
+      "state_name": "Dadra and Nagar Haveli",
+      "year": 2021,
+      "ndvi_mean": 0.5049665023018207,
+      "ndvi_stddev": 0.0576833976000524,
+      "ndvi_min": 0.06340434782608696,
+      "ndvi_max": 0.6632086956521739
+    },
+    {
+      "state_name": "Daman and Diu",
+      "year": 2021,
+      "ndvi_mean": 0.4648677301410565,
+      "ndvi_stddev": 0.10297599801168374,
+      "ndvi_min": -0.06772,
+      "ndvi_max": 0.6194652173913043
+    },
+    {
+      "state_name": "Delhi",
+      "year": 2021,
+      "ndvi_mean": 0.3696906305388083,
+      "ndvi_stddev": 0.0898426074006942,
+      "ndvi_min": 0.12719565217391304,
+      "ndvi_max": 0.6025521739130435
+    },
+    {
+      "state_name": "Goa",
+      "year": 2021,
+      "ndvi_mean": 0.6106435805581467,
+      "ndvi_stddev": 0.07948988377101936,
+      "ndvi_min": -0.03543846153846154,
+      "ndvi_max": 0.7838
+    },
+    {
+      "state_name": "Gujarat",
+      "year": 2021,
+      "ndvi_mean": 0.3990121580843357,
+      "ndvi_stddev": 0.12361255605084519,
+      "ndvi_min": -0.1919,
+      "ndvi_max": 0.7156695652173913
+    },
+    {
+      "state_name": "Haryana",
+      "year": 2021,
+      "ndvi_mean": 0.4594439660535634,
+      "ndvi_stddev": 0.06401530494256905,
+      "ndvi_min": 0.1452608695652174,
+      "ndvi_max": 0.778495652173913
+    },
+    {
+      "state_name": "Himachal Pradesh",
+      "year": 2021,
+      "ndvi_mean": 0.3565291727705476,
+      "ndvi_stddev": 0.2907506676826942,
+      "ndvi_min": -0.10240833333333332,
+      "ndvi_max": 0.8152521739130435
+    },
+    {
+      "state_name": "Jharkhand",
+      "year": 2021,
+      "ndvi_mean": 0.5157322485291379,
+      "ndvi_stddev": 0.0817010216086036,
+      "ndvi_min": -0.07258421052631579,
+      "ndvi_max": 0.7895173913043478
+    },
+    {
+      "state_name": "Karnataka",
+      "year": 2021,
+      "ndvi_mean": 0.4870011341316844,
+      "ndvi_stddev": 0.10263198090615532,
+      "ndvi_min": -0.1308294117647059,
+      "ndvi_max": 0.8378652173913044
+    },
+    {
+      "state_name": "Kerala",
+      "year": 2021,
+      "ndvi_mean": 0.6503574537528307,
+      "ndvi_stddev": 0.07709048528441582,
+      "ndvi_min": -0.1743,
+      "ndvi_max": 0.8981
+    },
+    {
+      "state_name": "Lakshadweep",
+      "year": 2021,
+      "ndvi_mean": 0.4667804958005193,
+      "ndvi_stddev": 0.17435260779645737,
+      "ndvi_min": -0.051075,
+      "ndvi_max": 0.7133
+    },
+    {
+      "state_name": "Madhya Pradesh",
+      "year": 2021,
+      "ndvi_mean": 0.44709357379498504,
+      "ndvi_stddev": 0.07297359976739186,
+      "ndvi_min": -0.14623333333333333,
+      "ndvi_max": 0.7601739130434783
+    },
+    {
+      "state_name": "Maharashtra",
+      "year": 2021,
+      "ndvi_mean": 0.46941561362874407,
+      "ndvi_stddev": 0.07543127058954467,
+      "ndvi_min": -0.11107619047619048,
+      "ndvi_max": 0.7783
+    },
+    {
+      "state_name": "Manipur",
+      "year": 2021,
+      "ndvi_mean": 0.6754044855376781,
+      "ndvi_stddev": 0.10414642201753127,
+      "ndvi_min": 0.06990869565217392,
+      "ndvi_max": 0.862691304347826
+    },
+    {
+      "state_name": "Meghalaya",
+      "year": 2021,
+      "ndvi_mean": 0.6643037077855412,
+      "ndvi_stddev": 0.08031587328391467,
+      "ndvi_min": 0.2034434782608696,
+      "ndvi_max": 0.8455217391304348
+    },
+    {
+      "state_name": "Mizoram",
+      "year": 2021,
+      "ndvi_mean": 0.7434688288266184,
+      "ndvi_stddev": 0.05210612635719911,
+      "ndvi_min": 0.35499565217391305,
+      "ndvi_max": 0.8753217391304348
+    },
+    {
+      "state_name": "Nagaland",
+      "year": 2021,
+      "ndvi_mean": 0.7129236244101053,
+      "ndvi_stddev": 0.06863187639608215,
+      "ndvi_min": 0.16281304347826087,
+      "ndvi_max": 0.871208695652174
+    },
+    {
+      "state_name": "Orissa",
+      "year": 2021,
+      "ndvi_mean": 0.5497561834698044,
+      "ndvi_stddev": 0.09909070813783248,
+      "ndvi_min": -0.1934,
+      "ndvi_max": 0.822795652173913
+    },
+    {
+      "state_name": "Puducherry",
+      "year": 2021,
+      "ndvi_mean": 0.5351689293413895,
+      "ndvi_stddev": 0.10329881909786197,
+      "ndvi_min": -0.014063636363636363,
+      "ndvi_max": 0.7562434782608696
+    },
+    {
+      "state_name": "Punjab",
+      "year": 2021,
+      "ndvi_mean": 0.5031165421279475,
+      "ndvi_stddev": 0.049419912200943224,
+      "ndvi_min": 0.018205000000000002,
+      "ndvi_max": 0.7332478260869565
+    },
+    {
+      "state_name": "Rajasthan",
+      "year": 2021,
+      "ndvi_mean": 0.3010841076820754,
+      "ndvi_stddev": 0.12598158214392993,
+      "ndvi_min": -0.1041590909090909,
+      "ndvi_max": 0.6966826086956522
+    },
+    {
+      "state_name": "Sikkim",
+      "year": 2021,
+      "ndvi_mean": 0.37526354224516933,
+      "ndvi_stddev": 0.2747804821988464,
+      "ndvi_min": -0.09896521739130434,
+      "ndvi_max": 0.8382652173913044
+    },
+    {
+      "state_name": "Tamil Nadu",
+      "year": 2021,
+      "ndvi_mean": 0.5276633479339207,
+      "ndvi_stddev": 0.0970375483108756,
+      "ndvi_min": -0.18763333333333332,
+      "ndvi_max": 0.8207391304347826
+    },
+    {
+      "state_name": "Tripura",
+      "year": 2021,
+      "ndvi_mean": 0.6835077277093209,
+      "ndvi_stddev": 0.07562240089643023,
+      "ndvi_min": 0.10942608695652174,
+      "ndvi_max": 0.840008695652174
+    },
+    {
+      "state_name": "Uttar Pradesh",
+      "year": 2021,
+      "ndvi_mean": 0.47784593009785375,
+      "ndvi_stddev": 0.07136948175077767,
+      "ndvi_min": -0.1334909090909091,
+      "ndvi_max": 0.7954695652173913
+    },
+    {
+      "state_name": "Uttarakhand",
+      "year": 2021,
+      "ndvi_mean": 0.4933076260019948,
+      "ndvi_stddev": 0.24259221418292154,
+      "ndvi_min": -0.10158695652173913,
+      "ndvi_max": 0.8238478260869566
+    },
+    {
+      "state_name": "West Bengal",
+      "year": 2021,
+      "ndvi_mean": 0.5130608470062716,
+      "ndvi_stddev": 0.09307879655840831,
+      "ndvi_min": -0.1826,
+      "ndvi_max": 0.8722
+    }
+  ],
+  "country": {
+    "country": "India",
+    "year": 2021,
+    "ndvi_mean": 0.470304617226969
+  }
+}

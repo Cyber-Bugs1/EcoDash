@@ -1,0 +1,279 @@
+{
+  "data_type": "MODIS_AOD",
+  "year": 2022,
+  "states": [
+    {
+      "state_name": "Andaman and Nicobar",
+      "year": 2022,
+      "aod_mean": 191.7431381628774,
+      "aod_stddev": 38.02495215615691,
+      "aod_min": 105.51546391752578,
+      "aod_max": 324.66359447004606
+    },
+    {
+      "state_name": "Andhra Pradesh",
+      "year": 2022,
+      "aod_mean": 739.0318757809513,
+      "aod_stddev": 65.44717207767432,
+      "aod_min": 408.45498783454985,
+      "aod_max": 1250.6847826086957
+    },
+    {
+      "state_name": "Arunachal Pradesh",
+      "year": 2022,
+      "aod_mean": 197.61352509661862,
+      "aod_stddev": 69.34739406788748,
+      "aod_min": 29.370967741935484,
+      "aod_max": 406.19354838709677
+    },
+    {
+      "state_name": "Assam",
+      "year": 2022,
+      "aod_mean": 470.35653785060344,
+      "aod_stddev": 114.68198033334596,
+      "aod_min": 177.38181818181818,
+      "aod_max": 780.2610837438424
+    },
+    {
+      "state_name": "Bihar",
+      "year": 2022,
+      "aod_mean": 821.8426475186831,
+      "aod_stddev": 57.15695864074005,
+      "aod_min": 535.2992700729927,
+      "aod_max": 942.9114832535885
+    },
+    {
+      "state_name": "Chandigarh",
+      "year": 2022,
+      "aod_mean": 681.7010571949638,
+      "aod_stddev": 19.619774438164907,
+      "aod_min": 656.1586776859505,
+      "aod_max": 711.8245033112582
+    },
+    {
+      "state_name": "Chhattisgarh",
+      "year": 2022,
+      "aod_mean": 731.3177829656524,
+      "aod_stddev": 61.1910385476632,
+      "aod_min": 524.0669642857143,
+      "aod_max": 856.3118503118503
+    },
+    {
+      "state_name": "Dadra and Nagar Haveli",
+      "year": 2022,
+      "aod_mean": 634.8035298048716,
+      "aod_stddev": 35.0614747940542,
+      "aod_min": 462.7367256637168,
+      "aod_max": 687.4911591355599
+    },
+    {
+      "state_name": "Daman and Diu",
+      "year": 2022,
+      "aod_mean": 586.4655569152743,
+      "aod_stddev": 42.51228865863528,
+      "aod_min": 471.3359173126615,
+      "aod_max": 706.3804971319312
+    },
+    {
+      "state_name": "Delhi",
+      "year": 2022,
+      "aod_mean": 740.5539992834794,
+      "aod_stddev": 40.61941395251625,
+      "aod_min": 618.9512195121952,
+      "aod_max": 822.6287744227353
+    },
+    {
+      "state_name": "Goa",
+      "year": 2022,
+      "aod_mean": 582.0520205239096,
+      "aod_stddev": 37.88140724343942,
+      "aod_min": 481.464,
+      "aod_max": 652.8709677419355
+    },
+    {
+      "state_name": "Gujarat",
+      "year": 2022,
+      "aod_mean": 601.4438613427864,
+      "aod_stddev": 115.97498910204392,
+      "aod_min": 238.31627906976743,
+      "aod_max": 3051.4972067039107
+    },
+    {
+      "state_name": "Haryana",
+      "year": 2022,
+      "aod_mean": 652.496183926016,
+      "aod_stddev": 49.2585961751686,
+      "aod_min": 434.55009107468123,
+      "aod_max": 817.3837837837838
+    },
+    {
+      "state_name": "Himachal Pradesh",
+      "year": 2022,
+      "aod_mean": 202.6908297730615,
+      "aod_stddev": 187.5251080058427,
+      "aod_min": 19.24416135881104,
+      "aod_max": 688.7152209492635
+    },
+    {
+      "state_name": "Jharkhand",
+      "year": 2022,
+      "aod_mean": 699.5570413854207,
+      "aod_stddev": 64.71422047404124,
+      "aod_min": 318.8844621513944,
+      "aod_max": 881.4192037470726
+    },
+    {
+      "state_name": "Karnataka",
+      "year": 2022,
+      "aod_mean": 610.6042658068563,
+      "aod_stddev": 70.15445028504219,
+      "aod_min": 282.18,
+      "aod_max": 785.0203619909503
+    },
+    {
+      "state_name": "Kerala",
+      "year": 2022,
+      "aod_mean": 509.752404901854,
+      "aod_stddev": 107.25393617473188,
+      "aod_min": 265.50714285714287,
+      "aod_max": 775.8057971014492
+    },
+    {
+      "state_name": "Lakshadweep",
+      "year": 2022,
+      "aod_mean": 550.8468173137665,
+      "aod_stddev": 95.19891095490426,
+      "aod_min": 342.3888888888889,
+      "aod_max": 754.8125
+    },
+    {
+      "state_name": "Madhya Pradesh",
+      "year": 2022,
+      "aod_mean": 629.3177352867557,
+      "aod_stddev": 56.70656541570363,
+      "aod_min": 190.43579766536965,
+      "aod_max": 797.7930434782609
+    },
+    {
+      "state_name": "Maharashtra",
+      "year": 2022,
+      "aod_mean": 650.2843012917425,
+      "aod_stddev": 58.0153495889431,
+      "aod_min": 330.373253493014,
+      "aod_max": 855.7213114754098
+    },
+    {
+      "state_name": "Manipur",
+      "year": 2022,
+      "aod_mean": 298.4633669344788,
+      "aod_stddev": 58.92298785851855,
+      "aod_min": 152.63533834586465,
+      "aod_max": 489.04545454545456
+    },
+    {
+      "state_name": "Meghalaya",
+      "year": 2022,
+      "aod_mean": 381.41231967846204,
+      "aod_stddev": 99.99570915899957,
+      "aod_min": 218.44237918215615,
+      "aod_max": 699.524064171123
+    },
+    {
+      "state_name": "Mizoram",
+      "year": 2022,
+      "aod_mean": 336.7614178551326,
+      "aod_stddev": 44.53802415752262,
+      "aod_min": 224.88563829787233,
+      "aod_max": 454.8271889400922
+    },
+    {
+      "state_name": "Nagaland",
+      "year": 2022,
+      "aod_mean": 301.4148418126508,
+      "aod_stddev": 60.78338674408351,
+      "aod_min": 120.74834437086092,
+      "aod_max": 483.9292452830189
+    },
+    {
+      "state_name": "Orissa",
+      "year": 2022,
+      "aod_mean": 762.6774490377203,
+      "aod_stddev": 61.388109066676655,
+      "aod_min": 384.38129496402877,
+      "aod_max": 1398.3850415512466
+    },
+    {
+      "state_name": "Puducherry",
+      "year": 2022,
+      "aod_mean": 598.2969882471637,
+      "aod_stddev": 66.6258912433064,
+      "aod_min": 467.61764705882354,
+      "aod_max": 734.0639097744361
+    },
+    {
+      "state_name": "Punjab",
+      "year": 2022,
+      "aod_mean": 656.7598059993147,
+      "aod_stddev": 61.99238498440744,
+      "aod_min": 386.96494156928213,
+      "aod_max": 755.2383252818036
+    },
+    {
+      "state_name": "Rajasthan",
+      "year": 2022,
+      "aod_mean": 636.2633462226072,
+      "aod_stddev": 62.37065363492536,
+      "aod_min": 250.8,
+      "aod_max": 828.5414364640884
+    },
+    {
+      "state_name": "Sikkim",
+      "year": 2022,
+      "aod_mean": 121.70194299273466,
+      "aod_stddev": 123.01698867342806,
+      "aod_min": 18.19047619047619,
+      "aod_max": 448.63858695652175
+    },
+    {
+      "state_name": "Tamil Nadu",
+      "year": 2022,
+      "aod_mean": 531.1601714352341,
+      "aod_stddev": 68.48105308957385,
+      "aod_min": 273.7945205479452,
+      "aod_max": 969.3157894736842
+    },
+    {
+      "state_name": "Tripura",
+      "year": 2022,
+      "aod_mean": 409.7057806130932,
+      "aod_stddev": 36.31103151303211,
+      "aod_min": 314.4570815450644,
+      "aod_max": 530.3244680851063
+    },
+    {
+      "state_name": "Uttar Pradesh",
+      "year": 2022,
+      "aod_mean": 758.9227023300215,
+      "aod_stddev": 70.87875674531139,
+      "aod_min": 190.43579766536965,
+      "aod_max": 913.20892494929
+    },
+    {
+      "state_name": "Uttarakhand",
+      "year": 2022,
+      "aod_mean": 311.7989521300427,
+      "aod_stddev": 202.77293843203498,
+      "aod_min": 19.35275080906149,
+      "aod_max": 753.3735909822866
+    },
+    {
+      "state_name": "West Bengal",
+      "year": 2022,
+      "aod_mean": 739.8717509801832,
+      "aod_stddev": 95.2402839372903,
+      "aod_min": 164.46017699115043,
+      "aod_max": 1081.8034934497816
+    }
+  ],
+  "country": null
+}

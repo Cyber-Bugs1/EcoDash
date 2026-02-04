@@ -1,0 +1,312 @@
+{
+  "data_type": "CROP_DATA",
+  "year": 2023,
+  "states": [
+    {
+      "state_name": "Andaman and Nicobar",
+      "year": 2023,
+      "cropland_percent": 0.09936875511213245,
+      "kharif_ndvi": 0.6121290016596239,
+      "rabi_ndvi": 0.7779851092007548,
+      "evi_mean": 0.48631192578269467,
+      "evi_max": 0.7205525910463593
+    },
+    {
+      "state_name": "Andhra Pradesh",
+      "year": 2023,
+      "cropland_percent": 73.80409622261988,
+      "kharif_ndvi": 0.4941011988650732,
+      "rabi_ndvi": 0.5128560085799375,
+      "evi_mean": 0.30467264313562603,
+      "evi_max": 0.506238595510764
+    },
+    {
+      "state_name": "Arunachal Pradesh",
+      "year": 2023,
+      "cropland_percent": 10.234000910575523,
+      "kharif_ndvi": 0.601930441730958,
+      "rabi_ndvi": 0.7219182733539959,
+      "evi_mean": 0.3766804531263623,
+      "evi_max": 0.6206817478319265
+    },
+    {
+      "state_name": "Assam",
+      "year": 2023,
+      "cropland_percent": 47.031216794742576,
+      "kharif_ndvi": 0.5959364491923274,
+      "rabi_ndvi": 0.5477684660445625,
+      "evi_mean": 0.3598122503523873,
+      "evi_max": 0.5868971702133897
+    },
+    {
+      "state_name": "Bihar",
+      "year": 2023,
+      "cropland_percent": 91.2596909064198,
+      "kharif_ndvi": 0.5067845267423038,
+      "rabi_ndvi": 0.4845314802500031,
+      "evi_mean": 0.3156076532140016,
+      "evi_max": 0.5759044660351746
+    },
+    {
+      "state_name": "Chandigarh",
+      "year": 2023,
+      "cropland_percent": 7.256606340095882,
+      "kharif_ndvi": 0.5049144830706058,
+      "rabi_ndvi": 0.41247724681832426,
+      "evi_mean": 0.2726228653588818,
+      "evi_max": 0.4148291034364947
+    },
+    {
+      "state_name": "Chhattisgarh",
+      "year": 2023,
+      "cropland_percent": 49.350445741896706,
+      "kharif_ndvi": 0.56281680516671,
+      "rabi_ndvi": 0.49644026397122254,
+      "evi_mean": 0.3105947155337554,
+      "evi_max": 0.5868835002466343
+    },
+    {
+      "state_name": "Dadra and Nagar Haveli",
+      "year": 2023,
+      "cropland_percent": 92.48389092580179,
+      "kharif_ndvi": 0.44501842907708106,
+      "rabi_ndvi": 0.4556896309049985,
+      "evi_mean": 0.26259448262988955,
+      "evi_max": 0.5678096283708246
+    },
+    {
+      "state_name": "Daman and Diu",
+      "year": 2023,
+      "cropland_percent": 37.03828496820121,
+      "kharif_ndvi": 0.44793434425413936,
+      "rabi_ndvi": 0.4630553824360799,
+      "evi_mean": 0.27534521144957813,
+      "evi_max": 0.5117689512458659
+    },
+    {
+      "state_name": "Delhi",
+      "year": 2023,
+      "cropland_percent": 34.241905786120455,
+      "kharif_ndvi": 0.4011144521864241,
+      "rabi_ndvi": 0.385546629278383,
+      "evi_mean": 0.23660447750171523,
+      "evi_max": 0.3859801276665696
+    },
+    {
+      "state_name": "Goa",
+      "year": 2023,
+      "cropland_percent": 18.80365419279027,
+      "kharif_ndvi": 0.49786953018223723,
+      "rabi_ndvi": 0.6647824097615589,
+      "evi_mean": 0.3524160841845251,
+      "evi_max": 0.5899758042368536
+    },
+    {
+      "state_name": "Gujarat",
+      "year": 2023,
+      "cropland_percent": 73.87106365917005,
+      "kharif_ndvi": 0.39741581808334114,
+      "rabi_ndvi": 0.4092821789381174,
+      "evi_mean": 0.24339308741130716,
+      "evi_max": 0.4409765321363414
+    },
+    {
+      "state_name": "Haryana",
+      "year": 2023,
+      "cropland_percent": 94.92885224685055,
+      "kharif_ndvi": 0.48247058409142546,
+      "rabi_ndvi": 0.5461061739163073,
+      "evi_mean": 0.3170781589053317,
+      "evi_max": 0.5795483226822785
+    },
+    {
+      "state_name": "Himachal Pradesh",
+      "year": 2023,
+      "cropland_percent": 5.638190848557109,
+      "kharif_ndvi": 0.4384662398051976,
+      "rabi_ndvi": 0.29117550849943746,
+      "evi_mean": 0.18712152389362008,
+      "evi_max": 0.38554356224884717
+    },
+    {
+      "state_name": "Jharkhand",
+      "year": 2023,
+      "cropland_percent": 74.79761221352946,
+      "kharif_ndvi": 0.551342391059847,
+      "rabi_ndvi": 0.4627456800302182,
+      "evi_mean": 0.30626405268176293,
+      "evi_max": 0.5656324791725081
+    },
+    {
+      "state_name": "Karnataka",
+      "year": 2023,
+      "cropland_percent": 73.88433545236197,
+      "kharif_ndvi": 0.44581000670323,
+      "rabi_ndvi": 0.5050497161419912,
+      "evi_mean": 0.2819675028876989,
+      "evi_max": 0.4718322083966592
+    },
+    {
+      "state_name": "Kerala",
+      "year": 2023,
+      "cropland_percent": 25.02550899040341,
+      "kharif_ndvi": 0.6182034826219412,
+      "rabi_ndvi": 0.7272605853475896,
+      "evi_mean": 0.43140838920467267,
+      "evi_max": 0.6217944320328218
+    },
+    {
+      "state_name": "Lakshadweep",
+      "year": 2023,
+      "cropland_percent": 0,
+      "kharif_ndvi": 0.5070784669741379,
+      "rabi_ndvi": 0.465786593155763,
+      "evi_mean": 0.2530510829739091,
+      "evi_max": 0.4358615615615616
+    },
+    {
+      "state_name": "Madhya Pradesh",
+      "year": 2023,
+      "cropland_percent": 77.55287910609844,
+      "kharif_ndvi": 0.48726995296840525,
+      "rabi_ndvi": 0.4913727790910603,
+      "evi_mean": 0.2833846762517749,
+      "evi_max": 0.5712698574456857
+    },
+    {
+      "state_name": "Maharashtra",
+      "year": 2023,
+      "cropland_percent": 81.52885939344372,
+      "kharif_ndvi": 0.46358278277292575,
+      "rabi_ndvi": 0.46701939805221265,
+      "evi_mean": 0.2683575128519972,
+      "evi_max": 0.5385592902153477
+    },
+    {
+      "state_name": "Manipur",
+      "year": 2023,
+      "cropland_percent": 8.971998398776773,
+      "kharif_ndvi": 0.6319306239497485,
+      "rabi_ndvi": 0.7246902440654419,
+      "evi_mean": 0.42030080178793905,
+      "evi_max": 0.6769421055816414
+    },
+    {
+      "state_name": "Meghalaya",
+      "year": 2023,
+      "cropland_percent": 3.2331357559451304,
+      "kharif_ndvi": 0.651945814742219,
+      "rabi_ndvi": 0.6837875541594225,
+      "evi_mean": 0.42457715432055054,
+      "evi_max": 0.673593275793878
+    },
+    {
+      "state_name": "Mizoram",
+      "year": 2023,
+      "cropland_percent": 0.22542011003352852,
+      "kharif_ndvi": 0.7442553617429424,
+      "rabi_ndvi": 0.7911091844453276,
+      "evi_mean": 0.5051123795345261,
+      "evi_max": 0.7613189519328007
+    },
+    {
+      "state_name": "Nagaland",
+      "year": 2023,
+      "cropland_percent": 2.2764405020598057,
+      "kharif_ndvi": 0.664555758381545,
+      "rabi_ndvi": 0.7367111458045663,
+      "evi_mean": 0.44003376369706204,
+      "evi_max": 0.7085952711847266
+    },
+    {
+      "state_name": "Orissa",
+      "year": 2023,
+      "cropland_percent": 57.045696242779144,
+      "kharif_ndvi": 0.5745461887885989,
+      "rabi_ndvi": 0.5273578857246012,
+      "evi_mean": 0.3326856594330155,
+      "evi_max": 0.5841714770567602
+    },
+    {
+      "state_name": "Puducherry",
+      "year": 2023,
+      "cropland_percent": 54.858233573754376,
+      "kharif_ndvi": 0.5262408785264678,
+      "rabi_ndvi": 0.5827920040553174,
+      "evi_mean": 0.33473332687314084,
+      "evi_max": 0.5068838397578085
+    },
+    {
+      "state_name": "Punjab",
+      "year": 2023,
+      "cropland_percent": 94.25511017415803,
+      "kharif_ndvi": 0.5542905130086576,
+      "rabi_ndvi": 0.5706189102930033,
+      "evi_mean": 0.3532215169378555,
+      "evi_max": 0.6618639992082135
+    },
+    {
+      "state_name": "Rajasthan",
+      "year": 2023,
+      "cropland_percent": 63.00812277694837,
+      "kharif_ndvi": 0.3637888321907909,
+      "rabi_ndvi": 0.3258895524798087,
+      "evi_mean": 0.21187761029175345,
+      "evi_max": 0.4059915720794125
+    },
+    {
+      "state_name": "Sikkim",
+      "year": 2023,
+      "cropland_percent": 0.12071001449997244,
+      "kharif_ndvi": 0.38195417747796745,
+      "rabi_ndvi": 0.4152551929219366,
+      "evi_mean": 0.21758072403899922,
+      "evi_max": 0.45041477868171526
+    },
+    {
+      "state_name": "Tamil Nadu",
+      "year": 2023,
+      "cropland_percent": 78.03048922167505,
+      "kharif_ndvi": 0.5299178162382685,
+      "rabi_ndvi": 0.559509502449001,
+      "evi_mean": 0.3363313266941775,
+      "evi_max": 0.5221118049852489
+    },
+    {
+      "state_name": "Tripura",
+      "year": 2023,
+      "cropland_percent": 16.102755515504306,
+      "kharif_ndvi": 0.6992407552559181,
+      "rabi_ndvi": 0.6657800959029153,
+      "evi_mean": 0.44903655061110004,
+      "evi_max": 0.6964527276699306
+    },
+    {
+      "state_name": "Uttar Pradesh",
+      "year": 2023,
+      "cropland_percent": 93.83083735599794,
+      "kharif_ndvi": 0.5158746078479659,
+      "rabi_ndvi": 0.5101572160442569,
+      "evi_mean": 0.3197585669561158,
+      "evi_max": 0.5732241378379889
+    },
+    {
+      "state_name": "Uttarakhand",
+      "year": 2023,
+      "cropland_percent": 12.027838319247252,
+      "kharif_ndvi": 0.5560099902709743,
+      "rabi_ndvi": 0.47075044325611287,
+      "evi_mean": 0.2695357413674665,
+      "evi_max": 0.5011138093896984
+    },
+    {
+      "state_name": "West Bengal",
+      "year": 2023,
+      "cropland_percent": 82.51409763234463,
+      "kharif_ndvi": 0.5587905500630156,
+      "rabi_ndvi": 0.48351204875168025,
+      "evi_mean": 0.336171375029453,
+      "evi_max": 0.5908608539147144
+    }
+  ]
+}
