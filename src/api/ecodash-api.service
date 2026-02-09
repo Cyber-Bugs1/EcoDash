@@ -1,0 +1,16 @@
+[Unit]
+Description=EcoDash Backend API Service
+After=network.target
+
+[Service]
+# Adjust User to the appropriate user on the Linux server
+User=ecodash
+# Adjust WorkingDirectory to the root of the project where src/ is located
+WorkingDirectory=/opt/ecodash
+# Adjust ExecStart to the full path of the start_servers.sh script
+ExecStart=/bin/bash /opt/ecodash/src/api/start_servers.sh
+Restart=always
+RestartSec=5
+
+[Install]
+WantedBy=multi-user.target
